@@ -1,0 +1,215 @@
+<http://example.org/mira> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://example.org/mira> <http://www.w3.org/2002/07/owl#imports> <http://semanticscience.org/ontology/sio.owl> .
+<http://example.org/mira> <http://www.w3.org/2000/01/rdf-schema#label> "mechanisms of inequality research and analysis (MIRA) ontology " .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/2000/01/rdf-schema#description
+<http://www.w3.org/2000/01/rdf-schema#description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://example.org/mirahasContext
+<http://example.org/mirahasContext> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://example.org/mirahasContext> <http://www.w3.org/2000/01/rdf-schema#domain> <http://example.org/miraComparison> .
+<http://example.org/mirahasContext> <http://www.w3.org/2000/01/rdf-schema#domain> <http://example.org/miraExplanation> .
+<http://example.org/mirahasContext> <http://www.w3.org/2000/01/rdf-schema#range> <http://example.org/miraContext> .
+<http://example.org/miraContext> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://example.org/mirahasContext> <http://www.w3.org/2000/01/rdf-schema#range> <http://example.org/miraSample> .
+<http://example.org/miraSample> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://example.org/mirahasContext> <http://www.w3.org/2000/01/rdf-schema#range> <http://semanticscience.org/resource/SIO_000414> .
+<http://example.org/mirahasContext> <http://www.w3.org/2000/01/rdf-schema#range> <http://semanticscience.org/resource/SIO_001062> .
+<http://example.org/mirahasContext> <http://www.w3.org/2000/01/rdf-schema#label> "has context" .
+# 
+# http://example.org/mirahasMediator
+<http://example.org/mirahasMediator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://example.org/mirahasMediator> <http://www.w3.org/2000/01/rdf-schema#domain> <http://example.org/miraExplanation> .
+<http://example.org/mirahasMediator> <http://www.w3.org/2000/01/rdf-schema#range> <http://example.org/miraMediator> .
+<http://example.org/mirahasMediator> <http://www.w3.org/2000/01/rdf-schema#label> "has mediator" .
+# 
+# http://example.org/mirahasModerator
+<http://example.org/mirahasModerator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://example.org/mirahasModerator> <http://www.w3.org/2000/01/rdf-schema#domain> <http://example.org/miraExplanation> .
+<http://example.org/mirahasModerator> <http://www.w3.org/2000/01/rdf-schema#range> <http://example.org/miraModerator> .
+<http://example.org/mirahasModerator> <http://www.w3.org/2000/01/rdf-schema#label> "has moderator" .
+# 
+# http://example.org/mirahasObject
+<http://example.org/mirahasObject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://example.org/mirahasObject> <http://www.w3.org/2000/01/rdf-schema#domain> <http://example.org/miraComparison> .
+<http://example.org/mirahasObject> <http://www.w3.org/2000/01/rdf-schema#domain> <http://example.org/miraExplanation> .
+<http://example.org/mirahasObject> <http://www.w3.org/2000/01/rdf-schema#range> <http://example.org/miraExplanation> .
+<http://example.org/mirahasObject> <http://www.w3.org/2000/01/rdf-schema#range> <http://example.org/miraObject> .
+<http://example.org/mirahasObject> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/linked-data/cube#ComponentProperty> .
+<http://purl.org/linked-data/cube#ComponentProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://example.org/mirahasObject> <http://www.w3.org/2000/01/rdf-schema#range> <http://semanticscience.org/resource/SIO_000015> .
+<http://example.org/mirahasObject> <http://www.w3.org/2000/01/rdf-schema#label> "has object" .
+# 
+# http://example.org/mirahasQualifier
+<http://example.org/mirahasQualifier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://example.org/mirahasQualifier> <http://www.w3.org/2000/01/rdf-schema#domain> <http://example.org/miraComparison> .
+<http://example.org/mirahasQualifier> <http://www.w3.org/2000/01/rdf-schema#domain> <http://example.org/miraExplanation> .
+<http://example.org/mirahasQualifier> <http://www.w3.org/2000/01/rdf-schema#range> <http://example.org/miraQualifier> .
+<http://example.org/mirahasQualifier> <http://www.w3.org/2000/01/rdf-schema#label> "has qualifier" .
+# 
+# http://example.org/mirahasRelation
+<http://example.org/mirahasRelation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://example.org/mirahasRelation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://example.org/miraComparison> .
+<http://example.org/mirahasRelation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://example.org/miraExplanation> .
+<http://example.org/mirahasRelation> <http://www.w3.org/2000/01/rdf-schema#range> <http://example.org/miraRelationalProperty> .
+<http://example.org/mirahasRelation> <http://www.w3.org/2000/01/rdf-schema#label> "has relation" .
+# 
+# http://example.org/mirahasSubject
+<http://example.org/mirahasSubject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://example.org/mirahasSubject> <http://www.w3.org/2000/01/rdf-schema#domain> <http://example.org/miraComparison> .
+<http://example.org/mirahasSubject> <http://www.w3.org/2000/01/rdf-schema#domain> <http://example.org/miraExplanation> .
+<http://example.org/mirahasSubject> <http://www.w3.org/2000/01/rdf-schema#range> <http://example.org/miraSubject> .
+<http://example.org/miraSubject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://example.org/mirahasSubject> <http://www.w3.org/2000/01/rdf-schema#label> "has subject" .
+# 
+# http://example.org/miratrendType
+<http://example.org/miratrendType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://example.org/miratrendType> <http://www.w3.org/2000/01/rdf-schema#domain> <http://semanticscience.org/resource/SIO_000015> .
+<http://example.org/miratrendType> <http://www.w3.org/2000/01/rdf-schema#range> <http://example.org/miraTrendType> .
+<http://example.org/miratrendType> <http://www.w3.org/2000/01/rdf-schema#label> "trend type" .
+# 
+# http://semanticscience.org/resource/SIO_000008
+<http://semanticscience.org/resource/SIO_000008> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://semanticscience.org/resource/SIO_000008> <http://www.w3.org/2000/01/rdf-schema#domain> <http://example.org/miraHypothesis> .
+<http://semanticscience.org/resource/SIO_000008> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/ontology/bibo/Paper> .
+<http://purl.org/ontology/bibo/Paper> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://semanticscience.org/resource/SIO_000008> <http://www.w3.org/2000/01/rdf-schema#range> <http://example.org/miraComparison> .
+<http://semanticscience.org/resource/SIO_000008> <http://www.w3.org/2000/01/rdf-schema#range> <http://example.org/miraExplanation> .
+<http://semanticscience.org/resource/SIO_000008> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/linked-data/cube#DataSet> .
+<http://purl.org/linked-data/cube#DataSet> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://semanticscience.org/resource/SIO_000008> <http://www.w3.org/2000/01/rdf-schema#range> <http://semanticscience.org/resource/SIO_000976> .
+<http://semanticscience.org/resource/SIO_000008> <http://www.w3.org/2000/01/rdf-schema#label> "has attribute" .
+# 
+# http://semanticscience.org/resource/SIO_000061
+<http://semanticscience.org/resource/SIO_000061> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://semanticscience.org/resource/SIO_000061> <http://www.w3.org/2000/01/rdf-schema#domain> <http://example.org/miraSample> .
+<http://semanticscience.org/resource/SIO_000061> <http://www.w3.org/2000/01/rdf-schema#range> <http://semanticscience.org/resource/SIO_000414> .
+<http://semanticscience.org/resource/SIO_000061> <http://www.w3.org/2000/01/rdf-schema#label> "is located in" .
+# 
+# http://semanticscience.org/resource/SIO_000687
+<http://semanticscience.org/resource/SIO_000687> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://semanticscience.org/resource/SIO_000687> <http://www.w3.org/2000/01/rdf-schema#domain> <http://example.org/miraSample> .
+<http://semanticscience.org/resource/SIO_000687> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2006/time#TemporalEntity> .
+<http://semanticscience.org/resource/SIO_000687> <http://www.w3.org/2000/01/rdf-schema#label> "exists at" .
+# 
+# http://www.w3.org/ns/prov#wasDerivedFrom
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#domain> <http://example.org/miraHypothesis> .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#range> <http://semanticscience.org/resource/SIO_000976> .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#label> "was derived from" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# http://semanticscience.org/resource/SIO_000300
+<http://semanticscience.org/resource/SIO_000300> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://semanticscience.org/resource/SIO_000300> <http://www.w3.org/2000/01/rdf-schema#domain> <http://semanticscience.org/resource/SIO_000015> .
+<http://semanticscience.org/resource/SIO_000300> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#float> .
+<http://semanticscience.org/resource/SIO_000300> <http://www.w3.org/2000/01/rdf-schema#label> "has value" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://example.org/miraComparison
+<http://example.org/miraComparison> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://example.org/miraComparison> <http://www.w3.org/2000/01/rdf-schema#label> "comparatory question" .
+# 
+# http://example.org/miraContext
+# 
+# http://example.org/miraExplanation
+<http://example.org/miraExplanation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://example.org/miraExplanation> <http://www.w3.org/2000/01/rdf-schema#label> "explanatory question" .
+# 
+# http://example.org/miraHypothesis
+<http://example.org/miraHypothesis> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://example.org/miraHypothesis> <http://www.w3.org/2000/01/rdf-schema#description> "a hypothesis, consisting of a description/comparison and explanation" .
+<http://example.org/miraHypothesis> <http://www.w3.org/2000/01/rdf-schema#label> "hypothesis" .
+# 
+# http://example.org/miraMediator
+<http://example.org/miraMediator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://example.org/miraMediator> <http://www.w3.org/2000/01/rdf-schema#label> "mediator variable" .
+# 
+# http://example.org/miraModerator
+<http://example.org/miraModerator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://example.org/miraModerator> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://example.org/miraExplanation> .
+<http://example.org/miraModerator> <http://www.w3.org/2000/01/rdf-schema#label> "moderator" .
+<http://example.org/miraModerator> <http://www.w3.org/2000/01/rdf-schema#label> "moderator variable" .
+# 
+# http://example.org/miraObject
+<http://example.org/miraObject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://example.org/miraObject> <http://www.w3.org/2000/01/rdf-schema#label> "object" .
+<http://example.org/miraObject> <http://www.w3.org/2000/01/rdf-schema#label> "subject" .
+# 
+# http://example.org/miraQualifier
+<http://example.org/miraQualifier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://example.org/miraQualifier> <http://www.w3.org/2000/01/rdf-schema#label> "qualifier" .
+# 
+# http://example.org/miraRelationalProperty
+<http://example.org/miraRelationalProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://example.org/miraRelationalProperty> <http://www.w3.org/2000/01/rdf-schema#description> "the class of properties holding scientific relationships between variables, e.g., mira:hasCausalEffectOn" .
+<http://example.org/miraRelationalProperty> <http://www.w3.org/2000/01/rdf-schema#label> "relational property" .
+# 
+# http://example.org/miraSample
+# 
+# http://example.org/miraSubject
+# 
+# http://example.org/miraTrendType
+<http://example.org/miraTrendType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://example.org/miraTrendType> <http://www.w3.org/2000/01/rdf-schema#label> "trend type" .
+# 
+# http://purl.org/linked-data/cube#ComponentProperty
+# 
+# http://purl.org/linked-data/cube#DataSet
+# 
+# http://purl.org/ontology/bibo/Paper
+# 
+# http://semanticscience.org/resource/SIO_000015
+<http://semanticscience.org/resource/SIO_000015> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://semanticscience.org/resource/SIO_000015> <http://www.w3.org/2000/01/rdf-schema#label> "information content entity" .
+# 
+# http://semanticscience.org/resource/SIO_000414
+<http://semanticscience.org/resource/SIO_000414> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://semanticscience.org/resource/SIO_000414> <http://www.w3.org/2000/01/rdf-schema#label> "geographic region" .
+# 
+# http://semanticscience.org/resource/SIO_000976
+<http://semanticscience.org/resource/SIO_000976> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://semanticscience.org/resource/SIO_000976> <http://www.w3.org/2000/01/rdf-schema#label> "observational study" .
+# 
+# http://semanticscience.org/resource/SIO_001062
+<http://semanticscience.org/resource/SIO_001062> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://semanticscience.org/resource/SIO_001062> <http://www.w3.org/2000/01/rdf-schema#label> "human population" .
+# 
+# http://www.w3.org/2006/time#TemporalEntity
+<http://www.w3.org/2006/time#TemporalEntity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2006/time#TemporalEntity> <http://www.w3.org/2000/01/rdf-schema#label> "temporal entity" .
+# 
+# Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

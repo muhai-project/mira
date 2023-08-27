@@ -1,0 +1,238 @@
+@prefix : <http://example.org/mira#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://example.org/mira#> .
+
+<http://example.org/mira> rdf:type owl:Ontology ;
+                           owl:imports <http://semanticscience.org/ontology/sio.owl> ;
+                           rdfs:label "mechanisms of inequality research and analysis (MIRA) ontology " .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2000/01/rdf-schema#description
+rdfs:description rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://example.org/mirahasContext
+<http://example.org/mirahasContext> rdf:type owl:ObjectProperty ;
+                                    rdfs:domain <http://example.org/miraComparison> ,
+                                                <http://example.org/miraExplanation> ;
+                                    rdfs:range <http://example.org/miraContext> ,
+                                               <http://example.org/miraSample> ,
+                                               <http://semanticscience.org/resource/SIO_000414> ,
+                                               <http://semanticscience.org/resource/SIO_001062> ;
+                                    rdfs:label "has context" .
+
+
+###  http://example.org/mirahasMediator
+<http://example.org/mirahasMediator> rdf:type owl:ObjectProperty ;
+                                     rdfs:domain <http://example.org/miraExplanation> ;
+                                     rdfs:range <http://example.org/miraMediator> ;
+                                     rdfs:label "has mediator" .
+
+
+###  http://example.org/mirahasModerator
+<http://example.org/mirahasModerator> rdf:type owl:ObjectProperty ;
+                                      rdfs:domain <http://example.org/miraExplanation> ;
+                                      rdfs:range <http://example.org/miraModerator> ;
+                                      rdfs:label "has moderator" .
+
+
+###  http://example.org/mirahasObject
+<http://example.org/mirahasObject> rdf:type owl:ObjectProperty ;
+                                   rdfs:domain <http://example.org/miraComparison> ,
+                                               <http://example.org/miraExplanation> ;
+                                   rdfs:range <http://example.org/miraExplanation> ,
+                                              <http://example.org/miraObject> ,
+                                              <http://purl.org/linked-data/cube#ComponentProperty> ,
+                                              <http://semanticscience.org/resource/SIO_000015> ;
+                                   rdfs:label "has object" .
+
+
+###  http://example.org/mirahasQualifier
+<http://example.org/mirahasQualifier> rdf:type owl:ObjectProperty ;
+                                      rdfs:domain <http://example.org/miraComparison> ,
+                                                  <http://example.org/miraExplanation> ;
+                                      rdfs:range <http://example.org/miraQualifier> ;
+                                      rdfs:label "has qualifier" .
+
+
+###  http://example.org/mirahasRelation
+<http://example.org/mirahasRelation> rdf:type owl:ObjectProperty ;
+                                     rdfs:domain <http://example.org/miraComparison> ,
+                                                 <http://example.org/miraExplanation> ;
+                                     rdfs:range <http://example.org/miraRelationalProperty> ;
+                                     rdfs:label "has relation" .
+
+
+###  http://example.org/mirahasSubject
+<http://example.org/mirahasSubject> rdf:type owl:ObjectProperty ;
+                                    rdfs:domain <http://example.org/miraComparison> ,
+                                                <http://example.org/miraExplanation> ;
+                                    rdfs:range <http://example.org/miraSubject> ;
+                                    rdfs:label "has subject" .
+
+
+###  http://example.org/miratrendType
+<http://example.org/miratrendType> rdf:type owl:ObjectProperty ;
+                                   rdfs:domain <http://semanticscience.org/resource/SIO_000015> ;
+                                   rdfs:range <http://example.org/miraTrendType> ;
+                                   rdfs:label "trend type" .
+
+
+###  http://semanticscience.org/resource/SIO_000008
+<http://semanticscience.org/resource/SIO_000008> rdf:type owl:ObjectProperty ;
+                                                 rdfs:domain <http://example.org/miraHypothesis> ,
+                                                             <http://purl.org/ontology/bibo/Paper> ;
+                                                 rdfs:range <http://example.org/miraComparison> ,
+                                                            <http://example.org/miraExplanation> ,
+                                                            <http://purl.org/linked-data/cube#DataSet> ,
+                                                            <http://semanticscience.org/resource/SIO_000976> ;
+                                                 rdfs:label "has attribute" .
+
+
+###  http://semanticscience.org/resource/SIO_000061
+<http://semanticscience.org/resource/SIO_000061> rdf:type owl:ObjectProperty ;
+                                                 rdfs:domain <http://example.org/miraSample> ;
+                                                 rdfs:range <http://semanticscience.org/resource/SIO_000414> ;
+                                                 rdfs:label "is located in" .
+
+
+###  http://semanticscience.org/resource/SIO_000687
+<http://semanticscience.org/resource/SIO_000687> rdf:type owl:ObjectProperty ;
+                                                 rdfs:domain <http://example.org/miraSample> ;
+                                                 rdfs:range <http://www.w3.org/2006/time#TemporalEntity> ;
+                                                 rdfs:label "exists at" .
+
+
+###  http://www.w3.org/ns/prov#wasDerivedFrom
+<http://www.w3.org/ns/prov#wasDerivedFrom> rdf:type owl:ObjectProperty ;
+                                           rdfs:domain <http://example.org/miraHypothesis> ;
+                                           rdfs:range <http://semanticscience.org/resource/SIO_000976> ;
+                                           rdfs:label "was derived from" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://semanticscience.org/resource/SIO_000300
+<http://semanticscience.org/resource/SIO_000300> rdf:type owl:DatatypeProperty ;
+                                                 rdfs:domain <http://semanticscience.org/resource/SIO_000015> ;
+                                                 rdfs:range xsd:float ;
+                                                 rdfs:label "has value" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://example.org/miraComparison
+<http://example.org/miraComparison> rdf:type owl:Class ;
+                                    rdfs:label "comparatory question" .
+
+
+###  http://example.org/miraContext
+<http://example.org/miraContext> rdf:type owl:Class .
+
+
+###  http://example.org/miraExplanation
+<http://example.org/miraExplanation> rdf:type owl:Class ;
+                                     rdfs:label "explanatory question" .
+
+
+###  http://example.org/miraHypothesis
+<http://example.org/miraHypothesis> rdf:type owl:Class ;
+                                    rdfs:description "a hypothesis, consisting of a description/comparison and explanation" ;
+                                    rdfs:label "hypothesis" .
+
+
+###  http://example.org/miraMediator
+<http://example.org/miraMediator> rdf:type owl:Class ;
+                                  rdfs:label "mediator variable" .
+
+
+###  http://example.org/miraModerator
+<http://example.org/miraModerator> rdf:type owl:Class ;
+                                   rdfs:subClassOf <http://example.org/miraExplanation> ;
+                                   rdfs:label "moderator" ,
+                                              "moderator variable" .
+
+
+###  http://example.org/miraObject
+<http://example.org/miraObject> rdf:type owl:Class ;
+                                rdfs:label "object" ,
+                                           "subject" .
+
+
+###  http://example.org/miraQualifier
+<http://example.org/miraQualifier> rdf:type owl:Class ;
+                                   rdfs:label "qualifier" .
+
+
+###  http://example.org/miraRelationalProperty
+<http://example.org/miraRelationalProperty> rdf:type owl:Class ;
+                                            rdfs:description "the class of properties holding scientific relationships between variables, e.g., mira:hasCausalEffectOn" ;
+                                            rdfs:label "relational property" .
+
+
+###  http://example.org/miraSample
+<http://example.org/miraSample> rdf:type owl:Class .
+
+
+###  http://example.org/miraSubject
+<http://example.org/miraSubject> rdf:type owl:Class .
+
+
+###  http://example.org/miraTrendType
+<http://example.org/miraTrendType> rdf:type owl:Class ;
+                                   rdfs:label "trend type" .
+
+
+###  http://purl.org/linked-data/cube#ComponentProperty
+<http://purl.org/linked-data/cube#ComponentProperty> rdf:type owl:Class .
+
+
+###  http://purl.org/linked-data/cube#DataSet
+<http://purl.org/linked-data/cube#DataSet> rdf:type owl:Class .
+
+
+###  http://purl.org/ontology/bibo/Paper
+<http://purl.org/ontology/bibo/Paper> rdf:type owl:Class .
+
+
+###  http://semanticscience.org/resource/SIO_000015
+<http://semanticscience.org/resource/SIO_000015> rdf:type owl:Class ;
+                                                 rdfs:label "information content entity" .
+
+
+###  http://semanticscience.org/resource/SIO_000414
+<http://semanticscience.org/resource/SIO_000414> rdf:type owl:Class ;
+                                                 rdfs:label "geographic region" .
+
+
+###  http://semanticscience.org/resource/SIO_000976
+<http://semanticscience.org/resource/SIO_000976> rdf:type owl:Class ;
+                                                 rdfs:label "observational study" .
+
+
+###  http://semanticscience.org/resource/SIO_001062
+<http://semanticscience.org/resource/SIO_001062> rdf:type owl:Class ;
+                                                 rdfs:label "human population" .
+
+
+###  http://www.w3.org/2006/time#TemporalEntity
+<http://www.w3.org/2006/time#TemporalEntity> rdf:type owl:Class ;
+                                             rdfs:label "temporal entity" .
+
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
