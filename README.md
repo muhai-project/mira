@@ -1,4 +1,4 @@
-# mira
+# MIRA
 
 Brief description or tagline about your research project.
 
