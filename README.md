@@ -1,4 +1,4 @@
-# MIRA
+# MIRA - Mechanisms of Inequality: An Ontology and Knowledge Graph for Social Demography Research
 
 Brief description or tagline about your research project.
 
