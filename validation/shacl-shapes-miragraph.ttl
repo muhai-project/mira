@@ -15,6 +15,8 @@
 @prefix : <http://example.org/> .
 @prefix mira: <https://w3id.org/muhai-project/mira/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix sem: <http://semanticweb.cs.vu.nl/2009/11/sem/> .
+@prefix gn: <http://www.geonames.org/ontology#> .
 
 :ArticleShape a sh:NodeShape;
    sh:targetClass bibo:AcademicArticle ;
@@ -28,6 +30,14 @@
       sh:nodeKind sh:IRI
    ] ;
 
+   sh:propety [
+    sh:path dcterms:created ;
+    sh:minCount 1;
+    sh:maxCount 1;
+    sh:nodeKind sh:Literal ;
+    sh:datatype xsd:date
+   ] ;
+
    # paper has at least one study
    sh:property [
       sh:path sio:SIO_000008 ; #has attribute
@@ -36,15 +46,16 @@
       sh:nodeKind sh:IRI
    ] .
 
+#study has at least one explanation
 :StudyShape a sh:NodeShape;
-      sh:targetClass sio:SIO_000976 ;
-      sh:nodeKind sh:IRI ;
-     sh:property [
-        sh:path sio:SIO_000008 ; #has attribute
-        sh:class mira:Explanation ;
-        sh:minCount 1;
-        sh:nodeKind sh:IRI
-     ] .
+     sh:targetClass sio:SIO_000976 ;
+     sh:nodeKind sh:IRI ;
+    sh:property [
+       sh:path sio:SIO_000008 ; #has attribute
+       sh:class mira:Explanation ;
+       sh:minCount 1;
+       sh:nodeKind sh:IRI
+    ] .
 
 #contexts can only be applied to hypotheses
 :ContextDomainShape a sh:NodeShape ;
@@ -61,4 +72,53 @@
             sh:xone ([ sh:class sio:SIO_000414 ]
                  [ sh:class sio:SIO_000012 ]
                  [ sh:class sio:SIO_001062 ])
-        ].
+        ] .
+
+:ComparisonShape a sh:NodeShape ;
+    sh:targetClass mira:Comparison ;
+    sh:nodeKind sh:IRI ;
+    sh:property [
+          sh:path mira:hasContext ;
+          sh:minCount 1 ;
+          sh:maxCount 1 ;
+          sh:nodeKind sh:IRI
+    ] ;
+    sh:property [
+          sh:path (mira:hasContext sem:hasPlace gn:locatedIn);
+          sh:minCount 1 ;
+          sh:maxCount 1 ;
+          sh:nodeKind sh:IRI
+    ] ;
+    sh:property [
+          sh:path (mira:hasContext time:hasTime);
+          sh:minCount 1 ;
+          sh:maxCount 1 ;
+          sh:nodeKind sh:IRI
+    ] .
+
+#each value of time:inXSDDate is of type xsd:date
+:TimeShape a sh:NodeShape ;
+    sh:targetClass time:TemporalEntity ;
+    sh:property [
+        sh:path (time:hasBeginning time:inXSDDate) ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:Literal ;
+        sh:datatype xsd:date
+    ] ;
+    sh:property [
+        sh:path (time:hasEnd time:inXSDDate) ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:Literal ;
+        sh:datatype xsd:date
+    ] .
+
+:TimeLogicalShape a sh:NodeShape ;
+    sh:targetObjectsOf time:hasEnd ;
+    sh:property [
+        sh:path ([sh:inversePath time:hasEnd] time:hasBeginning time:inXSDDate) ;
+        sh:nodeKind sh:Literal ;
+        sh:datatype xsd:date ;
+        sh:lessThan	time:inXSDDate
+    ] .
