@@ -18,7 +18,7 @@ nlp = spacy.load("en_core_web_sm")
 
 def semantify_paper_batch(papers,api_key):
     full_g = Graph()
-    openai.api_key = "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"
+    openai.api_key = api_key
 
     for paper in tqdm(papers): 
         
