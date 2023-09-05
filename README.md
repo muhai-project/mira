@@ -4,7 +4,6 @@ This github presents the MIRA-KG, a knowledge graph designed to capture hypothes
 
 ## Table of Contents
 - [Overview](#overview)
-- [Features](#features)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -21,10 +20,6 @@ The ontology links datasets, structured as instances of qb:DataSet, to research 
 https://api.druid.datalegend.net/datasets/lisestork/MIRA-KG/services/MIRA-KG/sparql).
 
 This github contains the ontology, example annotations, scripts to produce structured annotations automatically, and SHACL shapes for validation of their structure.
-
-## Features
-
-Highlight the key features of your research project. Describe any unique contributions, methodologies, or approaches you've used.
 
 ## Getting Started
 
