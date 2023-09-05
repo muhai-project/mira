@@ -1,4 +1,4 @@
-# MIRA - Mechanisms of Inequality: A Knowledge Graph for Social Demography Hypotheses and Findings.
+# MIRA - A Knowledge Graph for Social Demography Hypotheses and Findings.
 
 This github presents the MIRA-KG, a knowledge graph designed to capture hypotheses and findings in social demography research. The resource aids researchers in understanding the trends and patterns revealed in social demography, and use them to discover biases, discover knowledge, and derive novel questions.
 
