@@ -1,234 +1,58 @@
 [ {
-  "@id" : "http://example.org/mira",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "mechanisms of inequality research and analysis (MIRA) ontology "
-  } ],
-  "http://www.w3.org/2002/07/owl#imports" : [ {
-    "@id" : "http://semanticscience.org/ontology/sio.owl"
-  } ]
-}, {
-  "@id" : "http://example.org/miraComparison",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "comparatory question"
-  } ]
-}, {
-  "@id" : "http://example.org/miraContext",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
-}, {
-  "@id" : "http://example.org/miraExplanation",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "explanatory question"
-  } ]
-}, {
-  "@id" : "http://example.org/miraHypothesis",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#description" : [ {
-    "@value" : "a hypothesis, consisting of a description/comparison and explanation"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "hypothesis"
-  } ]
-}, {
-  "@id" : "http://example.org/miraMediator",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "mediator variable"
-  } ]
-}, {
-  "@id" : "http://example.org/miraModerator",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "moderator"
-  }, {
-    "@value" : "moderator variable"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://example.org/miraExplanation"
-  } ]
-}, {
-  "@id" : "http://example.org/miraObject",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "object"
-  }, {
-    "@value" : "subject"
-  } ]
-}, {
-  "@id" : "http://example.org/miraQualifier",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "qualifier"
-  } ]
-}, {
-  "@id" : "http://example.org/miraRelationalProperty",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#description" : [ {
-    "@value" : "the class of properties holding scientific relationships between variables, e.g., mira:hasCausalEffectOn"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "relational property"
-  } ]
-}, {
-  "@id" : "http://example.org/miraSample",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
-}, {
-  "@id" : "http://example.org/miraSubject",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
-}, {
-  "@id" : "http://example.org/miraTrendType",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "trend type"
-  } ]
-}, {
-  "@id" : "http://example.org/mirahasContext",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://example.org/miraComparison"
-  }, {
-    "@id" : "http://example.org/miraExplanation"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "has context"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://example.org/miraContext"
-  }, {
-    "@id" : "http://example.org/miraSample"
-  }, {
-    "@id" : "http://semanticscience.org/resource/SIO_000414"
-  }, {
-    "@id" : "http://semanticscience.org/resource/SIO_001062"
-  } ]
-}, {
-  "@id" : "http://example.org/mirahasMediator",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://example.org/miraExplanation"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "has mediator"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://example.org/miraMediator"
-  } ]
-}, {
-  "@id" : "http://example.org/mirahasModerator",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://example.org/miraExplanation"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "has moderator"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://example.org/miraModerator"
-  } ]
-}, {
-  "@id" : "http://example.org/mirahasObject",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://example.org/miraComparison"
-  }, {
-    "@id" : "http://example.org/miraExplanation"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "has object"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://example.org/miraExplanation"
-  }, {
-    "@id" : "http://example.org/miraObject"
-  }, {
-    "@id" : "http://purl.org/linked-data/cube#ComponentProperty"
-  }, {
-    "@id" : "http://semanticscience.org/resource/SIO_000015"
-  } ]
-}, {
-  "@id" : "http://example.org/mirahasQualifier",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://example.org/miraComparison"
-  }, {
-    "@id" : "http://example.org/miraExplanation"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "has qualifier"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://example.org/miraQualifier"
-  } ]
-}, {
-  "@id" : "http://example.org/mirahasRelation",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://example.org/miraComparison"
-  }, {
-    "@id" : "http://example.org/miraExplanation"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "has relation"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://example.org/miraRelationalProperty"
-  } ]
-}, {
-  "@id" : "http://example.org/mirahasSubject",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://example.org/miraComparison"
-  }, {
-    "@id" : "http://example.org/miraExplanation"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "has subject"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://example.org/miraSubject"
-  } ]
-}, {
-  "@id" : "http://example.org/miratrendType",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://semanticscience.org/resource/SIO_000015"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "trend type"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://example.org/miraTrendType"
-  } ]
-}, {
   "@id" : "http://purl.org/linked-data/cube#ComponentProperty",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "component property"
+  } ]
 }, {
   "@id" : "http://purl.org/linked-data/cube#DataSet",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
 }, {
-  "@id" : "http://purl.org/ontology/bibo/Paper",
+  "@id" : "http://purl.org/linked-data/cube#DimensionProperty",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "dimension property "
+  } ]
+}, {
+  "@id" : "http://purl.org/linked-data/cube#MeasureProperty",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "measure property "
+  } ]
+}, {
+  "@id" : "http://purl.org/ontology/bibo/AcademicArticle",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "academic article"
+  } ]
+}, {
+  "@id" : "http://semanticscience.org/resource/InformationContentEntity",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
 }, {
   "@id" : "http://semanticscience.org/resource/SIO_000008",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://example.org/miraHypothesis"
+    "@id" : "http://purl.org/ontology/bibo/AcademicArticle"
   }, {
-    "@id" : "http://purl.org/ontology/bibo/Paper"
+    "@id" : "https://w3id.org/muhai-project/mira/Explanation"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "has attribute"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://example.org/miraComparison"
-  }, {
-    "@id" : "http://example.org/miraExplanation"
-  }, {
     "@id" : "http://purl.org/linked-data/cube#DataSet"
   }, {
     "@id" : "http://semanticscience.org/resource/SIO_000976"
+  }, {
+    "@id" : "https://w3id.org/muhai-project/mira/Comparison"
+  }, {
+    "@id" : "https://w3id.org/muhai-project/mira/Explanation"
+  } ]
+}, {
+  "@id" : "http://semanticscience.org/resource/SIO_000012",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "organization"
   } ]
 }, {
   "@id" : "http://semanticscience.org/resource/SIO_000015",
@@ -240,13 +64,45 @@
   "@id" : "http://semanticscience.org/resource/SIO_000061",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://example.org/miraSample"
+    "@id" : "https://w3id.org/muhai-project/mira/Sample"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "is located in"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://semanticscience.org/resource/SIO_000414"
+  } ]
+}, {
+  "@id" : "http://semanticscience.org/resource/SIO_000205",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://semanticscience.org/resource/SIO_000012"
+  }, {
+    "@id" : "http://semanticscience.org/resource/SIO_000414"
+  }, {
+    "@id" : "http://semanticscience.org/resource/SIO_001062"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "is represented by"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://semanticscience.org/resource/SIO_001050"
+  } ]
+}, {
+  "@id" : "http://semanticscience.org/resource/SIO_000210",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://semanticscience.org/resource/SIO_001050"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "represents"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://semanticscience.org/resource/SIO_000012"
+  }, {
+    "@id" : "http://semanticscience.org/resource/SIO_000414"
+  }, {
+    "@id" : "http://semanticscience.org/resource/SIO_001062"
   } ]
 }, {
   "@id" : "http://semanticscience.org/resource/SIO_000300",
@@ -270,13 +126,45 @@
   "@id" : "http://semanticscience.org/resource/SIO_000687",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://example.org/miraSample"
+    "@id" : "https://w3id.org/muhai-project/mira/Sample"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "exists at"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://www.w3.org/2006/time#TemporalEntity"
+  } ]
+}, {
+  "@id" : "http://semanticscience.org/resource/SIO_000772",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#TransitiveProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/muhai-project/mira/Comparison"
+  }, {
+    "@id" : "https://w3id.org/muhai-project/mira/Explanation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "has evidence"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://purl.org/linked-data/cube#DataSet"
+  }, {
+    "@id" : "https://w3id.org/muhai-project/mira/Comparison"
+  } ]
+}, {
+  "@id" : "http://semanticscience.org/resource/SIO_000773",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#TransitiveProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://purl.org/linked-data/cube#DataSet"
+  }, {
+    "@id" : "https://w3id.org/muhai-project/mira/Comparison"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "is evidence for"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/muhai-project/mira/Comparison"
+  }, {
+    "@id" : "https://w3id.org/muhai-project/mira/Explanation"
   } ]
 }, {
   "@id" : "http://semanticscience.org/resource/SIO_000976",
@@ -294,21 +182,230 @@
   "@id" : "http://www.w3.org/2000/01/rdf-schema#description",
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
 }, {
+  "@id" : "http://www.w3.org/2001/XMLSchema#boolean",
+  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ]
+}, {
+  "@id" : "http://www.w3.org/2001/XMLSchema#date",
+  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ]
+}, {
+  "@id" : "http://www.w3.org/2001/XMLSchema#float",
+  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ]
+}, {
+  "@id" : "http://www.w3.org/2001/XMLSchema#integer",
+  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ]
+}, {
+  "@id" : "http://www.w3.org/2001/XMLSchema#positiveInteger",
+  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ]
+}, {
   "@id" : "http://www.w3.org/2006/time#TemporalEntity",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "temporal entity"
   } ]
 }, {
-  "@id" : "http://www.w3.org/ns/prov#wasDerivedFrom",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://example.org/miraHypothesis"
+  "@id" : "https://w3id.org/muhai-project/mira/",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ],
+  "http://purl.org/dc/terms/contributor" : [ {
+    "@id" : "https://orcid.org/0000-0003-0956-9466"
+  } ],
+  "http://purl.org/dc/terms/creator" : [ {
+    "@id" : "http://orcid.org/0000-0002-2146-4803"
+  }, {
+    "@id" : "https://orcid.org/0000-0001-7116-9338"
+  }, {
+    "@id" : "https://orcid.org/0000-0002-9771-8822"
+  } ],
+  "http://purl.org/dc/terms/description" : [ {
+    "@value" : "The MIRA ontology is designed to capture hypotheses and findings in social demography research. Specifically, the ontology links datasets to research questions in the domain of social demography."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "was derived from"
+    "@value" : "mechanisms of inequality research and analysis (MIRA) ontology "
+  } ],
+  "http://www.w3.org/2002/07/owl#imports" : [ {
+    "@id" : "http://semanticscience.org/ontology/sio.owl"
+  } ]
+}, {
+  "@id" : "https://w3id.org/muhai-project/mira/Comparison",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "comparatory question"
+  } ]
+}, {
+  "@id" : "https://w3id.org/muhai-project/mira/Context",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/muhai-project/mira/Explanation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "explanatory question"
+  } ]
+}, {
+  "@id" : "https://w3id.org/muhai-project/mira/InteractionEffect",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "interaction effect"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/muhai-project/mira/Explanation"
+  } ]
+}, {
+  "@id" : "https://w3id.org/muhai-project/mira/MainEffect",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "main effect"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/muhai-project/mira/Explanation"
+  } ]
+}, {
+  "@id" : "https://w3id.org/muhai-project/mira/Mediator",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "mediator variable"
+  } ]
+}, {
+  "@id" : "https://w3id.org/muhai-project/mira/Moderator",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "moderator"
+  }, {
+    "@value" : "moderator variable"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/muhai-project/mira/Explanation"
+  } ]
+}, {
+  "@id" : "https://w3id.org/muhai-project/mira/Object",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "object"
+  }, {
+    "@value" : "subject"
+  } ]
+}, {
+  "@id" : "https://w3id.org/muhai-project/mira/Qualifier",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "qualifier"
+  } ]
+}, {
+  "@id" : "https://w3id.org/muhai-project/mira/RelationalProperty",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#description" : [ {
+    "@value" : "the class of properties holding scientific relationships between variables, e.g., mira:hasCausalEffectOn"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "relational property"
+  } ]
+}, {
+  "@id" : "https://w3id.org/muhai-project/mira/Sample",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/muhai-project/mira/hasContext",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/muhai-project/mira/Comparison"
+  }, {
+    "@id" : "https://w3id.org/muhai-project/mira/Explanation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "has context"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://semanticscience.org/resource/SIO_000976"
+    "@id" : "http://semanticscience.org/resource/SIO_000414"
+  }, {
+    "@id" : "http://semanticscience.org/resource/SIO_001062"
+  }, {
+    "@id" : "https://w3id.org/muhai-project/mira/Context"
+  }, {
+    "@id" : "https://w3id.org/muhai-project/mira/Sample"
+  } ]
+}, {
+  "@id" : "https://w3id.org/muhai-project/mira/hasMediator",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/muhai-project/mira/Explanation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "has mediator"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/muhai-project/mira/Mediator"
+  } ]
+}, {
+  "@id" : "https://w3id.org/muhai-project/mira/hasModerator",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/muhai-project/mira/Explanation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "has moderator"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/muhai-project/mira/Moderator"
+  } ]
+}, {
+  "@id" : "https://w3id.org/muhai-project/mira/hasObject",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/muhai-project/mira/Comparison"
+  }, {
+    "@id" : "https://w3id.org/muhai-project/mira/Explanation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "has object"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://purl.org/linked-data/cube#MeasureProperty"
+  }, {
+    "@id" : "http://semanticscience.org/resource/SIO_000015"
+  }, {
+    "@id" : "https://w3id.org/muhai-project/mira/Explanation"
+  }, {
+    "@id" : "https://w3id.org/muhai-project/mira/Object"
+  } ]
+}, {
+  "@id" : "https://w3id.org/muhai-project/mira/hasQualifier",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/muhai-project/mira/Comparison"
+  }, {
+    "@id" : "https://w3id.org/muhai-project/mira/Explanation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "has qualifier"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/muhai-project/mira/Qualifier"
+  } ]
+}, {
+  "@id" : "https://w3id.org/muhai-project/mira/hasRelation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/muhai-project/mira/Comparison"
+  }, {
+    "@id" : "https://w3id.org/muhai-project/mira/Explanation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "has relation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/muhai-project/mira/RelationalProperty"
+  } ]
+}, {
+  "@id" : "https://w3id.org/muhai-project/mira/hasSubject",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/muhai-project/mira/Comparison"
+  }, {
+    "@id" : "https://w3id.org/muhai-project/mira/Explanation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "has subject"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://purl.org/linked-data/cube#DimensionProperty"
+  }, {
+    "@id" : "http://semanticscience.org/resource/InformationContentEntity"
   } ]
 } ]

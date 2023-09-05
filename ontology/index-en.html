@@ -6,7 +6,7 @@
 
 
 <!-- SCHEMA.ORG METADATA -->
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"http://example.org/mira","image":"http://vowl.visualdataweb.org/webvowl/#iri=http://example.org/mira","name":"http://example.org/mira", "headline":"Document describing the ontology http://example.org/mira", "datePublished":"Sun Aug 27 12:39:33 CEST 2023"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/muhai-project/mira/","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/muhai-project/mira/","name":"https://w3id.org/muhai-project/mira/", "headline":"The MIRA ontology is designed to capture hypotheses and findings in social demography research. Specifically, the ontology links datasets to research questions in the domain of social demography.", "datePublished":"Tue Sep 05 18:17:56 CEST 2023", "author":[{"@type":"Person","name":"http://orcid.org/0000-0002-2146-4803","url":"http://orcid.org/0000-0002-2146-4803"},{"@type":"Person","name":"https://orcid.org/0000-0001-7116-9338","url":"https://orcid.org/0000-0001-7116-9338"},{"@type":"Person","name":"https://orcid.org/0000-0002-9771-8822","url":"https://orcid.org/0000-0002-9771-8822"}], "contributor":[{"@type":"Person","name":"https://orcid.org/0000-0003-0956-9466","url":"https://orcid.org/0000-0003-0956-9466"}]}</script>
 
 <script src="resources/jquery.js"></script> 
 <script src="resources/marked.min.js"></script> 
@@ -58,12 +58,20 @@ $(function(){
 
 <dl>
 <dt>Latest version:</dt>
-<dd><a href="http://example.org/mira">http://example.org/mira</a></dd>
+<dd><a href="https://w3id.org/muhai-project/mira/">https://w3id.org/muhai-project/mira/</a></dd>
+<dt>Authors:</dt>
+<dd><a href="http://orcid.org/0000-0002-2146-4803">http://orcid.org/0000-0002-2146-4803</a></dd><dd><a href="https://orcid.org/0000-0001-7116-9338">https://orcid.org/0000-0001-7116-9338</a></dd><dd><a href="https://orcid.org/0000-0002-9771-8822">https://orcid.org/0000-0002-9771-8822</a></dd>
+
+<dt>Contributors:</dt>
+<dd><a href="https://orcid.org/0000-0003-0956-9466">https://orcid.org/0000-0003-0956-9466</a></dd>
+
 <dt>Imported Ontologies:</dt>
 <dd><a href="http://semanticscience.org/ontology/sio.owl">sio.owl</a></dd>
 
 <dt>Download serialization:</dt><dd><span><a href="ontology.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="http://insertlicenseURIhere.example.org" target="_blank"><img src="https://img.shields.io/badge/License-license%20name%20goes%20here-blue.svg" alt="http://insertlicenseURIhere.example.org" /></a>
-</dd><!-- <dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --></dl>
+</dd><!-- <dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --><dt>Cite as:</dt>
+<dd>http://orcid.org/0000-0002-2146-4803, https://orcid.org/0000-0001-7116-9338, https://orcid.org/0000-0002-9771-8822.</dd>
+</dl>
 
 <hr/>
 </div>
@@ -72,7 +80,7 @@ $(function(){
 <span>Ontology Specification Draft</span>
 </div>
 </div>     <div id="abstract"><h2>Abstract</h2><span class="markdown">
-This is a placeholder text for the abstract. The abstract should contain a couple of sentences summarizing the ontology and its purpose.</span>
+The MIRA ontology is designed to capture hypotheses and findings in social demography research. Specifically, the ontology links datasets to research questions in the domain of social demography.</span>
 </div>
 <div id="toc"></div> 
 
@@ -86,14 +94,13 @@ This is a place holder text for the introduction. The introduction should briefl
 <table>
 <caption> <a href="#ns"> Table 1</a>: Namespaces used in the document </caption>
 <tbody>
-<tr><td><b>[Ontology NS Prefix]</b></td><td>&lt;http://example.org/mira&gt;</td></tr>
+<tr><td><b>[Ontology NS Prefix]</b></td><td>&lt;https://w3id.org/muhai-project/mira/&gt;</td></tr>
 <tr><td></td><td></td></tr>
 <tr><td><b>geonames</b></td><td>&lt;http://www.geonames.org/ontology&gt;</td></tr>
 <tr><td><b>owl</b></td><td>&lt;http://www.w3.org/2002/07/owl&gt;</td></tr>
 <tr><td><b>xsd</b></td><td>&lt;http://www.w3.org/2001/XMLSchema&gt;</td></tr>
 <tr><td><b>skos</b></td><td>&lt;http://www.w3.org/2004/02/skos/core&gt;</td></tr>
 <tr><td><b>rdfs</b></td><td>&lt;http://www.w3.org/2000/01/rdf-schema&gt;</td></tr>
-<tr><td><b>example</b></td><td>&lt;http://example.org&gt;</td></tr>
 <tr><td><b>qb</b></td><td>&lt;http://purl.org/linked-data/cube&gt;</td></tr>
 <tr><td><b>rdf</b></td><td>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns&gt;</td></tr>
 <tr><td><b>xml</b></td><td>&lt;http://www.w3.org/XML/1998/namespace&gt;</td></tr>
@@ -119,10 +126,21 @@ This ontology has the following classes and properties.</span>
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     class="hlist">
    <li>
-      <a href="#Comparison" title="http://example.org/miraComparison">comparatory question</a>
+      <a href="#http://purl.org/ontology/bibo/AcademicArticle" title="http://purl.org/ontology/bibo/AcademicArticle">academic article</a>
    </li>
    <li>
-      <a href="#Explanation" title="http://example.org/miraExplanation">explanatory question</a>
+      <a href="#Comparison" title="https://w3id.org/muhai-project/mira/Comparison">comparatory question</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/linked-data/cube#ComponentProperty"
+         title="http://purl.org/linked-data/cube#ComponentProperty">component property</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/linked-data/cube#DimensionProperty"
+         title="http://purl.org/linked-data/cube#DimensionProperty">dimension property </a>
+   </li>
+   <li>
+      <a href="#Explanation" title="https://w3id.org/muhai-project/mira/Explanation">explanatory question</a>
    </li>
    <li>
       <a href="#http://semanticscience.org/resource/SIO_000414" title="http://semanticscience.org/resource/SIO_000414">geographic region</a>
@@ -131,34 +149,42 @@ This ontology has the following classes and properties.</span>
       <a href="#http://semanticscience.org/resource/SIO_001062" title="http://semanticscience.org/resource/SIO_001062">human population</a>
    </li>
    <li>
-      <a href="#Hypothesis" title="http://example.org/miraHypothesis">hypothesis</a>
-   </li>
-   <li>
       <a href="#http://semanticscience.org/resource/SIO_000015" title="http://semanticscience.org/resource/SIO_000015">information content entity</a>
    </li>
    <li>
-      <a href="#Mediator" title="http://example.org/miraMediator">mediator variable</a>
+      <a href="#InteractionEffect"
+         title="https://w3id.org/muhai-project/mira/InteractionEffect">interaction effect</a>
    </li>
    <li>
-      <a href="#Moderator" title="http://example.org/miraModerator">moderator</a>
+      <a href="#MainEffect" title="https://w3id.org/muhai-project/mira/MainEffect">main effect</a>
    </li>
    <li>
-      <a href="#Object" title="http://example.org/miraObject">object</a>
+      <a href="#http://purl.org/linked-data/cube#MeasureProperty" title="http://purl.org/linked-data/cube#MeasureProperty">measure property </a>
+   </li>
+   <li>
+      <a href="#Mediator" title="https://w3id.org/muhai-project/mira/Mediator">mediator variable</a>
+   </li>
+   <li>
+      <a href="#Moderator" title="https://w3id.org/muhai-project/mira/Moderator">moderator</a>
+   </li>
+   <li>
+      <a href="#Object" title="https://w3id.org/muhai-project/mira/Object">object</a>
    </li>
    <li>
       <a href="#http://semanticscience.org/resource/SIO_000976" title="http://semanticscience.org/resource/SIO_000976">observational study</a>
    </li>
    <li>
-      <a href="#Qualifier" title="http://example.org/miraQualifier">qualifier</a>
+      <a href="#http://semanticscience.org/resource/SIO_000012" title="http://semanticscience.org/resource/SIO_000012">organization</a>
    </li>
    <li>
-      <a href="#RelationalProperty" title="http://example.org/miraRelationalProperty">relational property</a>
+      <a href="#Qualifier" title="https://w3id.org/muhai-project/mira/Qualifier">qualifier</a>
+   </li>
+   <li>
+      <a href="#RelationalProperty"
+         title="https://w3id.org/muhai-project/mira/RelationalProperty">relational property</a>
    </li>
    <li>
       <a href="#http://www.w3.org/2006/time#TemporalEntity" title="http://www.w3.org/2006/time#TemporalEntity">temporal entity</a>
-   </li>
-   <li>
-      <a href="#TrendType" title="http://example.org/miraTrendType">trend type</a>
    </li>
 </ul><h4>Object Properties</h4><ul xmlns:extra="https://w3id.org/extra#"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -170,48 +196,46 @@ This ontology has the following classes and properties.</span>
       <a href="#http://semanticscience.org/resource/SIO_000008" title="http://semanticscience.org/resource/SIO_000008">has attribute</a>
    </li>
    <li>
-      <a href="#hasContext" title="http://example.org/mirahasContext">has context</a>
+      <a href="#hasContext" title="https://w3id.org/muhai-project/mira/hasContext">has context</a>
    </li>
    <li>
-      <a href="#hasMediator" title="http://example.org/mirahasMediator">has mediator</a>
+      <a href="#http://semanticscience.org/resource/SIO_000772" title="http://semanticscience.org/resource/SIO_000772">has evidence</a>
    </li>
    <li>
-      <a href="#hasModerator" title="http://example.org/mirahasModerator">has moderator</a>
+      <a href="#hasMediator" title="https://w3id.org/muhai-project/mira/hasMediator">has mediator</a>
    </li>
    <li>
-      <a href="#hasObject" title="http://example.org/mirahasObject">has object</a>
+      <a href="#hasModerator" title="https://w3id.org/muhai-project/mira/hasModerator">has moderator</a>
    </li>
    <li>
-      <a href="#hasQualifier" title="http://example.org/mirahasQualifier">has qualifier</a>
+      <a href="#hasObject" title="https://w3id.org/muhai-project/mira/hasObject">has object</a>
    </li>
    <li>
-      <a href="#hasRelation" title="http://example.org/mirahasRelation">has relation</a>
+      <a href="#hasQualifier" title="https://w3id.org/muhai-project/mira/hasQualifier">has qualifier</a>
    </li>
    <li>
-      <a href="#hasSubject" title="http://example.org/mirahasSubject">has subject</a>
+      <a href="#hasRelation" title="https://w3id.org/muhai-project/mira/hasRelation">has relation</a>
+   </li>
+   <li>
+      <a href="#hasSubject" title="https://w3id.org/muhai-project/mira/hasSubject">has subject</a>
+   </li>
+   <li>
+      <a href="#http://semanticscience.org/resource/SIO_000773" title="http://semanticscience.org/resource/SIO_000773">is evidence for</a>
    </li>
    <li>
       <a href="#http://semanticscience.org/resource/SIO_000061" title="http://semanticscience.org/resource/SIO_000061">is located in</a>
    </li>
    <li>
-      <a href="#trendType" title="http://example.org/miratrendType">trend type</a>
+      <a href="#http://semanticscience.org/resource/SIO_000205" title="http://semanticscience.org/resource/SIO_000205">is represented by</a>
    </li>
    <li>
-      <a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">was derived from</a>
+      <a href="#http://semanticscience.org/resource/SIO_000210" title="http://semanticscience.org/resource/SIO_000210">represents</a>
    </li>
 </ul><h4>Data Properties</h4><ul xmlns:extra="https://w3id.org/extra#"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     class="hlist">
    <li>
       <a href="#http://semanticscience.org/resource/SIO_000300" title="http://semanticscience.org/resource/SIO_000300">has value</a>
-   </li>
-</ul><h4>Annotation Properties</h4><ul xmlns:extra="https://w3id.org/extra#"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    class="hlist">
-   <li>
-      <a href="#http://www.w3.org/2000/01/rdf-schema#description" title="http://www.w3.org/2000/01/rdf-schema#description">
-         <span>description</span>
-      </a>
    </li>
 </ul>
 </div>
@@ -234,10 +258,21 @@ This section provides details for each class and property defined by mechanisms 
    <h3 id="classes-headline" class="list">Classes</h3>
    <ul class="hlist">
       <li>
-         <a href="#Comparison" title="http://example.org/miraComparison">comparatory question</a>
+         <a href="#http://purl.org/ontology/bibo/AcademicArticle" title="http://purl.org/ontology/bibo/AcademicArticle">academic article</a>
       </li>
       <li>
-         <a href="#Explanation" title="http://example.org/miraExplanation">explanatory question</a>
+         <a href="#Comparison" title="https://w3id.org/muhai-project/mira/Comparison">comparatory question</a>
+      </li>
+      <li>
+         <a href="#http://purl.org/linked-data/cube#ComponentProperty"
+            title="http://purl.org/linked-data/cube#ComponentProperty">component property</a>
+      </li>
+      <li>
+         <a href="#http://purl.org/linked-data/cube#DimensionProperty"
+            title="http://purl.org/linked-data/cube#DimensionProperty">dimension property </a>
+      </li>
+      <li>
+         <a href="#Explanation" title="https://w3id.org/muhai-project/mira/Explanation">explanatory question</a>
       </li>
       <li>
          <a href="#http://semanticscience.org/resource/SIO_000414" title="http://semanticscience.org/resource/SIO_000414">geographic region</a>
@@ -246,56 +281,106 @@ This section provides details for each class and property defined by mechanisms 
          <a href="#http://semanticscience.org/resource/SIO_001062" title="http://semanticscience.org/resource/SIO_001062">human population</a>
       </li>
       <li>
-         <a href="#Hypothesis" title="http://example.org/miraHypothesis">hypothesis</a>
-      </li>
-      <li>
          <a href="#http://semanticscience.org/resource/SIO_000015" title="http://semanticscience.org/resource/SIO_000015">information content entity</a>
       </li>
       <li>
-         <a href="#Mediator" title="http://example.org/miraMediator">mediator variable</a>
+         <a href="#InteractionEffect"
+            title="https://w3id.org/muhai-project/mira/InteractionEffect">interaction effect</a>
       </li>
       <li>
-         <a href="#Moderator" title="http://example.org/miraModerator">moderator</a>
+         <a href="#MainEffect" title="https://w3id.org/muhai-project/mira/MainEffect">main effect</a>
       </li>
       <li>
-         <a href="#Object" title="http://example.org/miraObject">object</a>
+         <a href="#http://purl.org/linked-data/cube#MeasureProperty" title="http://purl.org/linked-data/cube#MeasureProperty">measure property </a>
+      </li>
+      <li>
+         <a href="#Mediator" title="https://w3id.org/muhai-project/mira/Mediator">mediator variable</a>
+      </li>
+      <li>
+         <a href="#Moderator" title="https://w3id.org/muhai-project/mira/Moderator">moderator</a>
+      </li>
+      <li>
+         <a href="#Object" title="https://w3id.org/muhai-project/mira/Object">object</a>
       </li>
       <li>
          <a href="#http://semanticscience.org/resource/SIO_000976" title="http://semanticscience.org/resource/SIO_000976">observational study</a>
       </li>
       <li>
-         <a href="#Qualifier" title="http://example.org/miraQualifier">qualifier</a>
+         <a href="#http://semanticscience.org/resource/SIO_000012" title="http://semanticscience.org/resource/SIO_000012">organization</a>
       </li>
       <li>
-         <a href="#RelationalProperty" title="http://example.org/miraRelationalProperty">relational property</a>
+         <a href="#Qualifier" title="https://w3id.org/muhai-project/mira/Qualifier">qualifier</a>
+      </li>
+      <li>
+         <a href="#RelationalProperty"
+            title="https://w3id.org/muhai-project/mira/RelationalProperty">relational property</a>
       </li>
       <li>
          <a href="#http://www.w3.org/2006/time#TemporalEntity" title="http://www.w3.org/2006/time#TemporalEntity">temporal entity</a>
       </li>
-      <li>
-         <a href="#TrendType" title="http://example.org/miraTrendType">trend type</a>
-      </li>
    </ul>
+   <div class="entity" id="http://purl.org/ontology/bibo/AcademicArticle">
+      <h3>academic article<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/ontology/bibo/AcademicArticle</p>
+      <dl class="description">
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#http://semanticscience.org/resource/SIO_000008" title="http://semanticscience.org/resource/SIO_000008">has attribute</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
    <div class="entity" id="Comparison">
       <h3>comparatory question<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://example.org/miraComparison</p>
+         <strong>IRI:</strong> https://w3id.org/muhai-project/mira/Comparison</p>
       <dl class="description">
          <dt>is in domain of</dt>
          <dd>
-            <a href="#hasContext" title="http://example.org/mirahasContext">has context</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#hasObject" title="http://example.org/mirahasObject">has object</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#hasQualifier" title="http://example.org/mirahasQualifier">has qualifier</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#hasRelation" title="http://example.org/mirahasRelation">has relation</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#hasSubject" title="http://example.org/mirahasSubject">has subject</a>
+            <a href="#hasContext" title="https://w3id.org/muhai-project/mira/hasContext">has context</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://semanticscience.org/resource/SIO_000772" title="http://semanticscience.org/resource/SIO_000772">has evidence</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasObject" title="https://w3id.org/muhai-project/mira/hasObject">has object</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasQualifier" title="https://w3id.org/muhai-project/mira/hasQualifier">has qualifier</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasRelation" title="https://w3id.org/muhai-project/mira/hasRelation">has relation</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasSubject" title="https://w3id.org/muhai-project/mira/hasSubject">has subject</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://semanticscience.org/resource/SIO_000773" title="http://semanticscience.org/resource/SIO_000773">is evidence for</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
          <dt>is in range of</dt>
          <dd>
             <a href="#http://semanticscience.org/resource/SIO_000008" title="http://semanticscience.org/resource/SIO_000008">has attribute</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://semanticscience.org/resource/SIO_000772" title="http://semanticscience.org/resource/SIO_000772">has evidence</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://semanticscience.org/resource/SIO_000773" title="http://semanticscience.org/resource/SIO_000773">is evidence for</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://purl.org/linked-data/cube#ComponentProperty">
+      <h3>component property<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/linked-data/cube#ComponentProperty</p>
+   </div>
+   <div class="entity" id="http://purl.org/linked-data/cube#DimensionProperty">
+      <h3>dimension property <sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/linked-data/cube#DimensionProperty</p>
+      <dl class="description">
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#hasSubject" title="https://w3id.org/muhai-project/mira/hasSubject">has subject</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
@@ -306,28 +391,34 @@ This section provides details for each class and property defined by mechanisms 
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://example.org/miraExplanation</p>
+         <strong>IRI:</strong> https://w3id.org/muhai-project/mira/Explanation</p>
       <dl class="description">
          <dt>has sub-classes</dt>
          <dd>
-            <a href="#Moderator" title="http://example.org/miraModerator">moderator</a>
+            <a href="#InteractionEffect"
+               title="https://w3id.org/muhai-project/mira/InteractionEffect">interaction effect</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#MainEffect" title="https://w3id.org/muhai-project/mira/MainEffect">main effect</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#Moderator" title="https://w3id.org/muhai-project/mira/Moderator">moderator</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in domain of</dt>
          <dd>
-            <a href="#hasContext" title="http://example.org/mirahasContext">has context</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#hasMediator" title="http://example.org/mirahasMediator">has mediator</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#hasModerator" title="http://example.org/mirahasModerator">has moderator</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#hasObject" title="http://example.org/mirahasObject">has object</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#hasQualifier" title="http://example.org/mirahasQualifier">has qualifier</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#hasRelation" title="http://example.org/mirahasRelation">has relation</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#hasSubject" title="http://example.org/mirahasSubject">has subject</a>
+            <a href="#http://semanticscience.org/resource/SIO_000008" title="http://semanticscience.org/resource/SIO_000008">has attribute</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasContext" title="https://w3id.org/muhai-project/mira/hasContext">has context</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://semanticscience.org/resource/SIO_000772" title="http://semanticscience.org/resource/SIO_000772">has evidence</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasMediator" title="https://w3id.org/muhai-project/mira/hasMediator">has mediator</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasModerator" title="https://w3id.org/muhai-project/mira/hasModerator">has moderator</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasObject" title="https://w3id.org/muhai-project/mira/hasObject">has object</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasQualifier" title="https://w3id.org/muhai-project/mira/hasQualifier">has qualifier</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasRelation" title="https://w3id.org/muhai-project/mira/hasRelation">has relation</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasSubject" title="https://w3id.org/muhai-project/mira/hasSubject">has subject</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
          <dt>is in range of</dt>
          <dd>
             <a href="#http://semanticscience.org/resource/SIO_000008" title="http://semanticscience.org/resource/SIO_000008">has attribute</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#hasObject" title="http://example.org/mirahasObject">has object</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#hasObject" title="https://w3id.org/muhai-project/mira/hasObject">has object</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://semanticscience.org/resource/SIO_000773" title="http://semanticscience.org/resource/SIO_000773">is evidence for</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
@@ -340,10 +431,16 @@ This section provides details for each class and property defined by mechanisms 
       <p>
          <strong>IRI:</strong> http://semanticscience.org/resource/SIO_000414</p>
       <dl class="description">
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#http://semanticscience.org/resource/SIO_000205" title="http://semanticscience.org/resource/SIO_000205">is represented by</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
          <dt>is in range of</dt>
          <dd>
-            <a href="#hasContext" title="http://example.org/mirahasContext">has context</a>
+            <a href="#hasContext" title="https://w3id.org/muhai-project/mira/hasContext">has context</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#http://semanticscience.org/resource/SIO_000061" title="http://semanticscience.org/resource/SIO_000061">is located in</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://semanticscience.org/resource/SIO_000210" title="http://semanticscience.org/resource/SIO_000210">represents</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
@@ -356,25 +453,15 @@ This section provides details for each class and property defined by mechanisms 
       <p>
          <strong>IRI:</strong> http://semanticscience.org/resource/SIO_001062</p>
       <dl class="description">
-         <dt>is in range of</dt>
-         <dd>
-            <a href="#hasContext" title="http://example.org/mirahasContext">has context</a>
-            <sup class="type-op" title="object property">op</sup>
-         </dd>
-      </dl>
-   </div>
-   <div class="entity" id="Hypothesis">
-      <h3>hypothesis<sup class="type-c" title="class">c</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://example.org/miraHypothesis</p>
-      <dl class="description">
          <dt>is in domain of</dt>
          <dd>
-            <a href="#http://semanticscience.org/resource/SIO_000008" title="http://semanticscience.org/resource/SIO_000008">has attribute</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">was derived from</a>
+            <a href="#http://semanticscience.org/resource/SIO_000205" title="http://semanticscience.org/resource/SIO_000205">is represented by</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#hasContext" title="https://w3id.org/muhai-project/mira/hasContext">has context</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://semanticscience.org/resource/SIO_000210" title="http://semanticscience.org/resource/SIO_000210">represents</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
@@ -390,12 +477,56 @@ This section provides details for each class and property defined by mechanisms 
          <dt>is in domain of</dt>
          <dd>
             <a href="#http://semanticscience.org/resource/SIO_000300" title="http://semanticscience.org/resource/SIO_000300">has value</a>
-            <sup class="type-dp" title="data property">dp</sup>, <a href="#trendType" title="http://example.org/miratrendType">trend type</a>
-            <sup class="type-op" title="object property">op</sup>
+            <sup class="type-dp" title="data property">dp</sup>
          </dd>
          <dt>is in range of</dt>
          <dd>
-            <a href="#hasObject" title="http://example.org/mirahasObject">has object</a>
+            <a href="#hasObject" title="https://w3id.org/muhai-project/mira/hasObject">has object</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="InteractionEffect">
+      <h3>interaction effect<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/muhai-project/mira/InteractionEffect</p>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Explanation" title="https://w3id.org/muhai-project/mira/Explanation">explanatory question</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="MainEffect">
+      <h3>main effect<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://w3id.org/muhai-project/mira/MainEffect</p>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#Explanation" title="https://w3id.org/muhai-project/mira/Explanation">explanatory question</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://purl.org/linked-data/cube#MeasureProperty">
+      <h3>measure property <sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/linked-data/cube#MeasureProperty</p>
+      <dl class="description">
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#hasObject" title="https://w3id.org/muhai-project/mira/hasObject">has object</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
@@ -406,11 +537,11 @@ This section provides details for each class and property defined by mechanisms 
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://example.org/miraMediator</p>
+         <strong>IRI:</strong> https://w3id.org/muhai-project/mira/Mediator</p>
       <dl class="description">
          <dt>is in range of</dt>
          <dd>
-            <a href="#hasMediator" title="http://example.org/mirahasMediator">has mediator</a>
+            <a href="#hasMediator" title="https://w3id.org/muhai-project/mira/hasMediator">has mediator</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
@@ -421,16 +552,16 @@ This section provides details for each class and property defined by mechanisms 
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://example.org/miraModerator</p>
+         <strong>IRI:</strong> https://w3id.org/muhai-project/mira/Moderator</p>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#Explanation" title="http://example.org/miraExplanation">explanatory question</a>
+            <a href="#Explanation" title="https://w3id.org/muhai-project/mira/Explanation">explanatory question</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in range of</dt>
          <dd>
-            <a href="#hasModerator" title="http://example.org/mirahasModerator">has moderator</a>
+            <a href="#hasModerator" title="https://w3id.org/muhai-project/mira/hasModerator">has moderator</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
@@ -441,11 +572,11 @@ This section provides details for each class and property defined by mechanisms 
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://example.org/miraObject</p>
+         <strong>IRI:</strong> https://w3id.org/muhai-project/mira/Object</p>
       <dl class="description">
          <dt>is in range of</dt>
          <dd>
-            <a href="#hasObject" title="http://example.org/mirahasObject">has object</a>
+            <a href="#hasObject" title="https://w3id.org/muhai-project/mira/hasObject">has object</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
@@ -461,7 +592,26 @@ This section provides details for each class and property defined by mechanisms 
          <dt>is in range of</dt>
          <dd>
             <a href="#http://semanticscience.org/resource/SIO_000008" title="http://semanticscience.org/resource/SIO_000008">has attribute</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">was derived from</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://semanticscience.org/resource/SIO_000012">
+      <h3>organization<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://semanticscience.org/resource/SIO_000012</p>
+      <dl class="description">
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#http://semanticscience.org/resource/SIO_000205" title="http://semanticscience.org/resource/SIO_000205">is represented by</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#http://semanticscience.org/resource/SIO_000210" title="http://semanticscience.org/resource/SIO_000210">represents</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
@@ -472,11 +622,11 @@ This section provides details for each class and property defined by mechanisms 
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://example.org/miraQualifier</p>
+         <strong>IRI:</strong> https://w3id.org/muhai-project/mira/Qualifier</p>
       <dl class="description">
          <dt>is in range of</dt>
          <dd>
-            <a href="#hasQualifier" title="http://example.org/mirahasQualifier">has qualifier</a>
+            <a href="#hasQualifier" title="https://w3id.org/muhai-project/mira/hasQualifier">has qualifier</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
@@ -487,11 +637,11 @@ This section provides details for each class and property defined by mechanisms 
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://example.org/miraRelationalProperty</p>
+         <strong>IRI:</strong> https://w3id.org/muhai-project/mira/RelationalProperty</p>
       <dl class="description">
          <dt>is in range of</dt>
          <dd>
-            <a href="#hasRelation" title="http://example.org/mirahasRelation">has relation</a>
+            <a href="#hasRelation" title="https://w3id.org/muhai-project/mira/hasRelation">has relation</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
@@ -511,21 +661,6 @@ This section provides details for each class and property defined by mechanisms 
          </dd>
       </dl>
    </div>
-   <div class="entity" id="TrendType">
-      <h3>trend type<sup class="type-c" title="class">c</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://example.org/miraTrendType</p>
-      <dl class="description">
-         <dt>is in range of</dt>
-         <dd>
-            <a href="#trendType" title="http://example.org/miratrendType">trend type</a>
-            <sup class="type-op" title="object property">op</sup>
-         </dd>
-      </dl>
-   </div>
 </div><div xmlns:extra="https://w3id.org/extra#"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      id="objectproperties">
@@ -538,34 +673,40 @@ This section provides details for each class and property defined by mechanisms 
          <a href="#http://semanticscience.org/resource/SIO_000008" title="http://semanticscience.org/resource/SIO_000008">has attribute</a>
       </li>
       <li>
-         <a href="#hasContext" title="http://example.org/mirahasContext">has context</a>
+         <a href="#hasContext" title="https://w3id.org/muhai-project/mira/hasContext">has context</a>
       </li>
       <li>
-         <a href="#hasMediator" title="http://example.org/mirahasMediator">has mediator</a>
+         <a href="#http://semanticscience.org/resource/SIO_000772" title="http://semanticscience.org/resource/SIO_000772">has evidence</a>
       </li>
       <li>
-         <a href="#hasModerator" title="http://example.org/mirahasModerator">has moderator</a>
+         <a href="#hasMediator" title="https://w3id.org/muhai-project/mira/hasMediator">has mediator</a>
       </li>
       <li>
-         <a href="#hasObject" title="http://example.org/mirahasObject">has object</a>
+         <a href="#hasModerator" title="https://w3id.org/muhai-project/mira/hasModerator">has moderator</a>
       </li>
       <li>
-         <a href="#hasQualifier" title="http://example.org/mirahasQualifier">has qualifier</a>
+         <a href="#hasObject" title="https://w3id.org/muhai-project/mira/hasObject">has object</a>
       </li>
       <li>
-         <a href="#hasRelation" title="http://example.org/mirahasRelation">has relation</a>
+         <a href="#hasQualifier" title="https://w3id.org/muhai-project/mira/hasQualifier">has qualifier</a>
       </li>
       <li>
-         <a href="#hasSubject" title="http://example.org/mirahasSubject">has subject</a>
+         <a href="#hasRelation" title="https://w3id.org/muhai-project/mira/hasRelation">has relation</a>
+      </li>
+      <li>
+         <a href="#hasSubject" title="https://w3id.org/muhai-project/mira/hasSubject">has subject</a>
+      </li>
+      <li>
+         <a href="#http://semanticscience.org/resource/SIO_000773" title="http://semanticscience.org/resource/SIO_000773">is evidence for</a>
       </li>
       <li>
          <a href="#http://semanticscience.org/resource/SIO_000061" title="http://semanticscience.org/resource/SIO_000061">is located in</a>
       </li>
       <li>
-         <a href="#trendType" title="http://example.org/miratrendType">trend type</a>
+         <a href="#http://semanticscience.org/resource/SIO_000205" title="http://semanticscience.org/resource/SIO_000205">is represented by</a>
       </li>
       <li>
-         <a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">was derived from</a>
+         <a href="#http://semanticscience.org/resource/SIO_000210" title="http://semanticscience.org/resource/SIO_000210">represents</a>
       </li>
    </ul>
    <div class="entity" id="http://semanticscience.org/resource/SIO_000687">
@@ -579,9 +720,9 @@ This section provides details for each class and property defined by mechanisms 
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="http://example.org/miraSample"
+               <a href="https://w3id.org/muhai-project/mira/Sample"
                   target="_blank"
-                  title="http://example.org/miraSample">mira sample</a>
+                  title="https://w3id.org/muhai-project/mira/Sample">sample</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
@@ -603,24 +744,14 @@ This section provides details for each class and property defined by mechanisms 
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#Hypothesis" title="http://example.org/miraHypothesis">hypothesis</a>
+               <a href="#http://purl.org/ontology/bibo/AcademicArticle" title="http://purl.org/ontology/bibo/AcademicArticle">academic article</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dd>
-               <a href="http://purl.org/ontology/bibo/Paper"
-                  target="_blank"
-                  title="http://purl.org/ontology/bibo/Paper">paper</a>
+               <a href="#Explanation" title="https://w3id.org/muhai-project/mira/Explanation">explanatory question</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
-            <dd>
-               <a href="#Comparison" title="http://example.org/miraComparison">comparatory question</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dd>
-               <a href="#Explanation" title="http://example.org/miraExplanation">explanatory question</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
             <dd>
                <a href="http://purl.org/linked-data/cube#DataSet"
                   target="_blank"
@@ -629,6 +760,14 @@ This section provides details for each class and property defined by mechanisms 
             </dd>
             <dd>
                <a href="#http://semanticscience.org/resource/SIO_000976" title="http://semanticscience.org/resource/SIO_000976">observational study</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
+               <a href="#Comparison" title="https://w3id.org/muhai-project/mira/Comparison">comparatory question</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
+               <a href="#Explanation" title="https://w3id.org/muhai-project/mira/Explanation">explanatory question</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -640,37 +779,72 @@ This section provides details for each class and property defined by mechanisms 
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://example.org/mirahasContext</p>
+         <strong>IRI:</strong> https://w3id.org/muhai-project/mira/hasContext</p>
       <div class="description">
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#Comparison" title="http://example.org/miraComparison">comparatory question</a>
+               <a href="#Comparison" title="https://w3id.org/muhai-project/mira/Comparison">comparatory question</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dd>
-               <a href="#Explanation" title="http://example.org/miraExplanation">explanatory question</a>
+               <a href="#Explanation" title="https://w3id.org/muhai-project/mira/Explanation">explanatory question</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
-            <dd>
-               <a href="http://example.org/miraContext"
-                  target="_blank"
-                  title="http://example.org/miraContext">mira context</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dd>
-               <a href="http://example.org/miraSample"
-                  target="_blank"
-                  title="http://example.org/miraSample">mira sample</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
             <dd>
                <a href="#http://semanticscience.org/resource/SIO_000414" title="http://semanticscience.org/resource/SIO_000414">geographic region</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dd>
                <a href="#http://semanticscience.org/resource/SIO_001062" title="http://semanticscience.org/resource/SIO_001062">human population</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
+               <a href="https://w3id.org/muhai-project/mira/Context"
+                  target="_blank"
+                  title="https://w3id.org/muhai-project/mira/Context">context</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
+               <a href="https://w3id.org/muhai-project/mira/Sample"
+                  target="_blank"
+                  title="https://w3id.org/muhai-project/mira/Sample">sample</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="http://semanticscience.org/resource/SIO_000772">
+      <h3>has evidence<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://semanticscience.org/resource/SIO_000772</p>
+      <div class="description">
+         <p>
+            <strong>has characteristics:
+                </strong> transitive</p>
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#Comparison" title="https://w3id.org/muhai-project/mira/Comparison">comparatory question</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
+               <a href="#Explanation" title="https://w3id.org/muhai-project/mira/Explanation">explanatory question</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="http://purl.org/linked-data/cube#DataSet"
+                  target="_blank"
+                  title="http://purl.org/linked-data/cube#DataSet">data set</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
+               <a href="#Comparison" title="https://w3id.org/muhai-project/mira/Comparison">comparatory question</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -682,17 +856,17 @@ This section provides details for each class and property defined by mechanisms 
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://example.org/mirahasMediator</p>
+         <strong>IRI:</strong> https://w3id.org/muhai-project/mira/hasMediator</p>
       <div class="description">
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#Explanation" title="http://example.org/miraExplanation">explanatory question</a>
+               <a href="#Explanation" title="https://w3id.org/muhai-project/mira/Explanation">explanatory question</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <a href="#Mediator" title="http://example.org/miraMediator">mediator variable</a>
+               <a href="#Mediator" title="https://w3id.org/muhai-project/mira/Mediator">mediator variable</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -704,17 +878,17 @@ This section provides details for each class and property defined by mechanisms 
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://example.org/mirahasModerator</p>
+         <strong>IRI:</strong> https://w3id.org/muhai-project/mira/hasModerator</p>
       <div class="description">
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#Explanation" title="http://example.org/miraExplanation">explanatory question</a>
+               <a href="#Explanation" title="https://w3id.org/muhai-project/mira/Explanation">explanatory question</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <a href="#Moderator" title="http://example.org/miraModerator">moderator</a>
+               <a href="#Moderator" title="https://w3id.org/muhai-project/mira/Moderator">moderator</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -726,35 +900,33 @@ This section provides details for each class and property defined by mechanisms 
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://example.org/mirahasObject</p>
+         <strong>IRI:</strong> https://w3id.org/muhai-project/mira/hasObject</p>
       <div class="description">
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#Comparison" title="http://example.org/miraComparison">comparatory question</a>
+               <a href="#Comparison" title="https://w3id.org/muhai-project/mira/Comparison">comparatory question</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dd>
-               <a href="#Explanation" title="http://example.org/miraExplanation">explanatory question</a>
+               <a href="#Explanation" title="https://w3id.org/muhai-project/mira/Explanation">explanatory question</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <a href="#Explanation" title="http://example.org/miraExplanation">explanatory question</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dd>
-               <a href="#Object" title="http://example.org/miraObject">object</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dd>
-               <a href="http://purl.org/linked-data/cube#ComponentProperty"
-                  target="_blank"
-                  title="http://purl.org/linked-data/cube#ComponentProperty">component property</a>
+               <a href="#http://purl.org/linked-data/cube#MeasureProperty" title="http://purl.org/linked-data/cube#MeasureProperty">measure property </a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dd>
                <a href="#http://semanticscience.org/resource/SIO_000015" title="http://semanticscience.org/resource/SIO_000015">information content entity</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
+               <a href="#Explanation" title="https://w3id.org/muhai-project/mira/Explanation">explanatory question</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
+               <a href="#Object" title="https://w3id.org/muhai-project/mira/Object">object</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -766,21 +938,21 @@ This section provides details for each class and property defined by mechanisms 
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://example.org/mirahasQualifier</p>
+         <strong>IRI:</strong> https://w3id.org/muhai-project/mira/hasQualifier</p>
       <div class="description">
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#Comparison" title="http://example.org/miraComparison">comparatory question</a>
+               <a href="#Comparison" title="https://w3id.org/muhai-project/mira/Comparison">comparatory question</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dd>
-               <a href="#Explanation" title="http://example.org/miraExplanation">explanatory question</a>
+               <a href="#Explanation" title="https://w3id.org/muhai-project/mira/Explanation">explanatory question</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <a href="#Qualifier" title="http://example.org/miraQualifier">qualifier</a>
+               <a href="#Qualifier" title="https://w3id.org/muhai-project/mira/Qualifier">qualifier</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -792,21 +964,22 @@ This section provides details for each class and property defined by mechanisms 
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://example.org/mirahasRelation</p>
+         <strong>IRI:</strong> https://w3id.org/muhai-project/mira/hasRelation</p>
       <div class="description">
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#Comparison" title="http://example.org/miraComparison">comparatory question</a>
+               <a href="#Comparison" title="https://w3id.org/muhai-project/mira/Comparison">comparatory question</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dd>
-               <a href="#Explanation" title="http://example.org/miraExplanation">explanatory question</a>
+               <a href="#Explanation" title="https://w3id.org/muhai-project/mira/Explanation">explanatory question</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <a href="#RelationalProperty" title="http://example.org/miraRelationalProperty">relational property</a>
+               <a href="#RelationalProperty"
+                  title="https://w3id.org/muhai-project/mira/RelationalProperty">relational property</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -818,23 +991,63 @@ This section provides details for each class and property defined by mechanisms 
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://example.org/mirahasSubject</p>
+         <strong>IRI:</strong> https://w3id.org/muhai-project/mira/hasSubject</p>
       <div class="description">
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#Comparison" title="http://example.org/miraComparison">comparatory question</a>
+               <a href="#Comparison" title="https://w3id.org/muhai-project/mira/Comparison">comparatory question</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dd>
-               <a href="#Explanation" title="http://example.org/miraExplanation">explanatory question</a>
+               <a href="#Explanation" title="https://w3id.org/muhai-project/mira/Explanation">explanatory question</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <a href="http://example.org/miraSubject"
+               <a href="#http://purl.org/linked-data/cube#DimensionProperty"
+                  title="http://purl.org/linked-data/cube#DimensionProperty">dimension property </a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
+               <a href="http://semanticscience.org/resource/InformationContentEntity"
                   target="_blank"
-                  title="http://example.org/miraSubject">mira subject</a>
+                  title="http://semanticscience.org/resource/InformationContentEntity">information content entity</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="http://semanticscience.org/resource/SIO_000773">
+      <h3>is evidence for<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://semanticscience.org/resource/SIO_000773</p>
+      <div class="description">
+         <p>
+            <strong>has characteristics:
+                </strong> transitive</p>
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="http://purl.org/linked-data/cube#DataSet"
+                  target="_blank"
+                  title="http://purl.org/linked-data/cube#DataSet">data set</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
+               <a href="#Comparison" title="https://w3id.org/muhai-project/mira/Comparison">comparatory question</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#Comparison" title="https://w3id.org/muhai-project/mira/Comparison">comparatory question</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
+               <a href="#Explanation" title="https://w3id.org/muhai-project/mira/Explanation">explanatory question</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -851,9 +1064,9 @@ This section provides details for each class and property defined by mechanisms 
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="http://example.org/miraSample"
+               <a href="https://w3id.org/muhai-project/mira/Sample"
                   target="_blank"
-                  title="http://example.org/miraSample">mira sample</a>
+                  title="https://w3id.org/muhai-project/mira/Sample">sample</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
@@ -864,45 +1077,63 @@ This section provides details for each class and property defined by mechanisms 
          </dl>
       </div>
    </div>
-   <div class="entity" id="trendType">
-      <h3>trend type<sup class="type-op" title="object property">op</sup>
+   <div class="entity" id="http://semanticscience.org/resource/SIO_000205">
+      <h3>is represented by<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://example.org/miratrendType</p>
+         <strong>IRI:</strong> http://semanticscience.org/resource/SIO_000205</p>
       <div class="description">
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#http://semanticscience.org/resource/SIO_000015" title="http://semanticscience.org/resource/SIO_000015">information content entity</a>
+               <a href="#http://semanticscience.org/resource/SIO_000012" title="http://semanticscience.org/resource/SIO_000012">organization</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
+               <a href="#http://semanticscience.org/resource/SIO_000414" title="http://semanticscience.org/resource/SIO_000414">geographic region</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
+               <a href="#http://semanticscience.org/resource/SIO_001062" title="http://semanticscience.org/resource/SIO_001062">human population</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <a href="#TrendType" title="http://example.org/miraTrendType">trend type</a>
-               <sup class="type-c" title="class">c</sup>
+               <a href="http://semanticscience.org/resource/SIO_001050"
+                  target="_blank"
+                  title="http://semanticscience.org/resource/SIO_001050">s i o 001050</a>
             </dd>
          </dl>
       </div>
    </div>
-   <div class="entity" id="http://www.w3.org/ns/prov#wasDerivedFrom">
-      <h3>was derived from<sup class="type-op" title="object property">op</sup>
+   <div class="entity" id="http://semanticscience.org/resource/SIO_000210">
+      <h3>represents<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://www.w3.org/ns/prov#wasDerivedFrom</p>
+         <strong>IRI:</strong> http://semanticscience.org/resource/SIO_000210</p>
       <div class="description">
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#Hypothesis" title="http://example.org/miraHypothesis">hypothesis</a>
-               <sup class="type-c" title="class">c</sup>
+               <a href="http://semanticscience.org/resource/SIO_001050"
+                  target="_blank"
+                  title="http://semanticscience.org/resource/SIO_001050">s i o 001050</a>
             </dd>
             <dt>has range</dt>
             <dd>
-               <a href="#http://semanticscience.org/resource/SIO_000976" title="http://semanticscience.org/resource/SIO_000976">observational study</a>
+               <a href="#http://semanticscience.org/resource/SIO_000012" title="http://semanticscience.org/resource/SIO_000012">organization</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
+               <a href="#http://semanticscience.org/resource/SIO_000414" title="http://semanticscience.org/resource/SIO_000414">geographic region</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
+               <a href="#http://semanticscience.org/resource/SIO_001062" title="http://semanticscience.org/resource/SIO_001062">human population</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -939,25 +1170,6 @@ This section provides details for each class and property defined by mechanisms 
             </dd>
          </dl>
       </div>
-   </div>
-</div><div xmlns:extra="https://w3id.org/extra#"
-     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-     id="annotationproperties">
-   <h3 id="annotationproperties" class="list">Annotation Properties</h3>
-   <ul class="hlist">
-      <li>
-         <a href="#http://www.w3.org/2000/01/rdf-schema#description" title="http://www.w3.org/2000/01/rdf-schema#description">
-            <span>description</span>
-         </a>
-      </li>
-   </ul>
-   <div class="entity" id="http://www.w3.org/2000/01/rdf-schema#description">
-      <h3>description<sup class="type-ap" title="annotation property">ap</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://www.w3.org/2000/01/rdf-schema#description</p>
    </div>
 </div><div id="legend">
 <h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>

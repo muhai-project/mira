@@ -1,0 +1,191 @@
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix geonames: <http://www.geonames.org/ontology#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix prism: <http://prismstandard.org/namespaces/1.2/basic/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sio: <http://semanticscience.org/resource/>.
+@prefix qb: <http://purl.org/linked-data/cube#>.
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qb: <http://purl.org/linked-data/cube#>.
+
+@prefix mira: <https://w3id.org/muhai-project/mira/> .
+
+<https://w3id.org/muhai-project/mira/> a owl:Ontology ;
+    rdfs:label "mechanisms of inequality research and analysis (MIRA) ontology ";
+    owl:imports <http://semanticscience.org/ontology/sio.owl> ;
+    dcterms:creator <http://orcid.org/0000-0002-2146-4803>, <https://orcid.org/0000-0002-9771-8822>, <https://orcid.org/0000-0001-7116-9338>, <https://orcid.org/0000-0002-9771-8822>;
+    dcterms:contributor <https://orcid.org/0000-0003-0956-9466> ;
+    dcterms:description "The MIRA ontology is designed to capture hypotheses and findings in social demography research. Specifically, the ontology links datasets to research questions in the domain of social demography.".
+
+#################################################################
+#    Datatypes
+#################################################################
+
+xsd:boolean rdf:type rdfs:Datatype .
+xsd:positiveInteger rdf:type rdfs:Datatype .
+xsd:date rdf:type rdfs:Datatype .
+xsd:integer rdf:type rdfs:Datatype .
+xsd:float rdf:type rdfs:Datatype .
+
+#################################################################
+#    Classes
+#################################################################
+
+qb:ComponentProperty a owl:Class ;
+        rdfs:label "component property".
+
+qb:DimensionProperty a owl:Class ;
+        owl:subClassOf qb:ComponentProperty ;
+        rdfs:label "dimension property ".
+
+qb:MeasureProperty a owl:Class ;
+        owl:subClassOf qb:ComponentProperty ;
+        rdfs:label "measure property ".
+
+bibo:AcademicArticle a owl:Class ;
+        rdfs:label "academic article" .
+
+sio:SIO_000976 a owl:Class ;
+        rdfs:label "observational study".
+
+mira:Comparison a owl:Class ;
+        rdfs:label "comparatory question".
+
+mira:RelationalProperty a owl:Class ;
+        rdfs:label "relational property";
+        rdfs:description "the class of properties holding scientific relationships between variables, e.g., mira:hasCausalEffectOn".
+
+mira:Explanation a owl:Class ;
+        rdfs:label "explanatory question".
+
+mira:MainEffect a owl:Class ;
+        rdfs:label "main effect";
+        rdfs:subClassOf mira:Explanation .
+
+mira:InteractionEffect a owl:Class ;
+        rdfs:label "interaction effect";
+        rdfs:subClassOf mira:Explanation .
+
+mira:Object a owl:Class ;
+        rdfs:label "object".
+
+mira:Qualifier a owl:Class ;
+        rdfs:label "qualifier".
+
+mira:Object a owl:Class ;
+        rdfs:label "subject".
+
+sio:SIO_000015 a owl:Class ;
+        rdfs:label "information content entity".
+
+sio:SIO_001062 a owl:Class ;
+        rdfs:label "human population".
+
+sio:SIO_000012 a owl:Class ;
+        rdfs:label "organization".
+
+sio:SIO_000414 a owl:Class ;
+        rdfs:label "geographic region".
+
+mira:Moderator a owl:Class ;
+        rdfs:label "moderator";
+        rdfs:subClassOf mira:Explanation ;
+        rdfs:label "moderator variable".
+
+mira:Mediator a owl:Class ;
+        rdfs:label "mediator variable".
+
+time:TemporalEntity a owl:Class;
+        rdfs:label "temporal entity".
+
+#################################################################
+#    Object properties
+#################################################################
+mira:hasRelation a owl:ObjectProperty ;
+        rdfs:label "has relation";
+        rdfs:domain mira:Comparison, mira:Explanation;
+        rdfs:range mira:RelationalProperty .
+
+mira:hasSubject a owl:ObjectProperty ;
+        rdfs:label "has subject";
+        rdfs:domain mira:Comparison, mira:Explanation;
+        rdfs:range sio:InformationContentEntity, qb:DimensionProperty .
+
+mira:hasObject a owl:ObjectProperty ;
+        rdfs:label "has object";
+        rdfs:domain mira:Comparison, mira:Explanation;
+        rdfs:range mira:Object, sio:SIO_000015, qb:MeasureProperty, mira:Explanation . #values from InformationContentEntity, or qb:ComponentProperty
+
+mira:hasQualifier a owl:ObjectProperty ;
+        rdfs:label "has qualifier";
+        rdfs:domain mira:Comparison, mira:Explanation;
+        rdfs:range mira:Qualifier .
+
+mira:hasContext a owl:ObjectProperty ;
+        rdfs:label "has context";
+        rdfs:domain mira:Comparison, mira:Explanation ;
+        rdfs:range mira:Context, mira:Sample, sio:SIO_001062, sio:SIO_000414.
+
+sio:SIO_000687 a owl:ObjectProperty ;#exists at
+        rdfs:label "exists at";
+        rdfs:domain mira:Sample;
+        rdfs:range time:TemporalEntity .
+
+sio:SIO_000061 a owl:ObjectProperty ; #is located in
+        rdfs:label "is located in";
+        rdfs:domain mira:Sample ;
+        rdfs:range sio:SIO_000414 .
+
+sio:SIO_000008 a owl:ObjectProperty ; #has attribute
+        rdfs:label "has attribute";
+        rdfs:domain bibo:AcademicArticle, mira:Explanation ;
+        rdfs:range sio:SIO_000976, qb:DataSet, mira:Comparison, mira:Explanation .
+
+sio:SIO_000773 a owl:ObjectProperty,owl:TransitiveProperty ;
+        rdfs:label "is evidence for";
+        rdfs:domain mira:Comparison, qb:DataSet ;
+        rdfs:range mira:Comparison, mira:Explanation ;
+        owl:inverseProperty sio:SIO_000772 .
+
+sio:SIO_000772 a owl:ObjectProperty,owl:TransitiveProperty ;
+        rdfs:label "has evidence";
+        rdfs:domain mira:Comparison, mira:Explanation ;
+        rdfs:range mira:Comparison, qb:DataSet ;
+        owl:inverseProperty sio:SIO_000773 .
+
+sio:SIO_000205 a owl:ObjectProperty ;
+        rdfs:label "is represented by";
+        rdfs:domain sio:SIO_000414, sio:SIO_001062,sio:SIO_000012;
+        rdfs:range sio:SIO_001050 ;
+        owl:inverseProperty sio:SIO_000210 .
+
+sio:SIO_000210 a owl:ObjectProperty ;
+        rdfs:label "represents";
+        rdfs:domain sio:SIO_001050 ;
+        rdfs:range sio:SIO_000414, sio:SIO_001062,sio:SIO_000012 ;
+        owl:inverseProperty sio:SIO_000205 .
+
+mira:hasMediator a owl:ObjectProperty ;
+        rdfs:label "has mediator";
+        rdfs:domain mira:Explanation ;
+        rdfs:range mira:Mediator .
+
+mira:hasModerator a owl:ObjectProperty ;
+        rdfs:label "has moderator";
+        rdfs:domain mira:Explanation ;
+        rdfs:range mira:Moderator .
+
+#################################################################
+#    Datatype properties
+#################################################################
+
+sio:SIO_000300 a owl:DatatypeProperty ;
+        rdfs:label "has value";
+        rdfs:domain sio:SIO_000015;
+        rdfs:range xsd:float .
