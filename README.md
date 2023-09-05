@@ -5,11 +5,8 @@ This github presents the MIRA-KG, a knowledge graph designed to capture hypothes
 ## Table of Contents
 - [Overview](#overview)
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
+- [Prerequisites](#prerequisites)
 - [Usage](#usage)
-- [Data](#data)
-- [Results](#results)
 - [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
@@ -23,26 +20,25 @@ This github contains the ontology, example annotations, scripts to produce struc
 
 ## Getting Started
 
-Requirements can be found in
-by: (i) prompting a Large Language Model to annotate paper abstracts, (ii) mapping concepts to terms from NCBO BioPortal ontologies, Geonames, and CauseNet for capturing causal pathways, and (iii) refining the final graph by a set of SHACL constraints, developed according to a set of data quality criteria.
+The semantify.py script turns abstracts into RDF according to the MIRA ontology. It does so by: (i) prompting a Large Language Model to annotate paper abstracts, (ii) mapping concepts to terms from NCBO BioPortal ontologies and Geonames, and (iii) refining the final graph by a set of SHACL constraints, developed according to a set of data quality criteria.
 
 ### Prerequisites
 
+```
 git clone https://github.com/muhai-project/mira.git
+```
 
+```
 pip install -r requirements.txt
-
+```
 
 ### Usage
 
-python semantify.py --paper_file paper_file.txt --output graph.ttl
+```
+python semantify.py --paper_file paper_file.txt --api_key "api_key" --shacl_file shacl_file.ttl --output graph.ttl --max 100
+```
 
-
-## Data
-
-
-
-## Results
+the location of the input file, the openAI api key, and the output file are required arguments. The shacl_file and max are optional. The max argument decides the number of papers that are processed by the script.
 
 
 ## Contributing
