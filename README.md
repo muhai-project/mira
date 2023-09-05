@@ -1,6 +1,6 @@
-# MIRA - Mechanisms of Inequality: An Ontology and Knowledge Graph for Social Demography Research
+# MIRA - Mechanisms of Inequality: A Knowledge Graph for Social Demography Hypotheses and Findings.
 
-Brief description or tagline about your research project.
+This github presents the MIRA-KG, a knowledge graph designed to capture hypotheses and findings in social demography research. The resource aids researchers in understanding the trends and patterns revealed in social demography, and use them to discover biases, discover knowledge, and derive novel questions.
 
 ## Table of Contents
 - [Overview](#overview)
@@ -17,7 +17,10 @@ Brief description or tagline about your research project.
 
 ## Overview
 
-Provide a high-level overview of your research project. Explain what it's about, its goals, and the main research questions or problems you are addressing.
+The ontology links datasets, structured as instances of qb:DataSet, to research questions in the domain of social demography. The ontology is populated by structured research questions on health inequality, queriable via a [SPARQL endpoint](
+https://api.druid.datalegend.net/datasets/lisestork/MIRA-KG/services/MIRA-KG/sparql).
+
+This github contains the ontology, example annotations, scripts to produce structured annotations automatically, and SHACL shapes for validation of their structure.
 
 ## Features
 
@@ -25,7 +28,7 @@ Highlight the key features of your research project. Describe any unique contrib
 
 ## Getting Started
 
-Provide step-by-step instructions on how to set up and run your project.
+by: (i) prompting a Large Language Model to annotate paper abstracts, (ii) mapping concepts to terms from NCBO BioPortal ontologies, Geonames, and CauseNet for capturing causal pathways, and (iii) refining the final graph by a set of SHACL constraints, developed according to a set of data quality criteria.
 
 ### Prerequisites
 
