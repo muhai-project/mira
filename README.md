@@ -23,15 +23,19 @@ This github contains the ontology, example annotations, scripts to produce struc
 
 ## Getting Started
 
+Requirements can be found in
 by: (i) prompting a Large Language Model to annotate paper abstracts, (ii) mapping concepts to terms from NCBO BioPortal ontologies, Geonames, and CauseNet for capturing causal pathways, and (iii) refining the final graph by a set of SHACL constraints, developed according to a set of data quality criteria.
 
 ### Prerequisites
 
+git clone https://github.com/muhai-project/mira.git
 
-### Installation
+pip install -r requirements.txt
 
 
-## Usage
+### Usage
+
+python semantify.py --paper_file paper_file.txt --output graph.ttl
 
 
 ## Data

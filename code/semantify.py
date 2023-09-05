@@ -13,67 +13,71 @@ import re
 from itertools import chain
 import spacy
 import numpy as np
-!python -m spacy download en_core_web_sm 
+!python -m spacy download en_core_web_sm
 nlp = spacy.load("en_core_web_sm")
+# your_script.py
+import argparse
+
+# Define your functions or classes here
 
 def semantify_paper_batch(papers,api_key):
     full_g = Graph()
     openai.api_key = api_key
 
-    for paper in tqdm(papers): 
-        
+    for paper in tqdm(papers):
+
         prompt_text = """
         '"""+paper['abstract']+ """'
 
-        Describe the claim of the abstract above only using RDF (the turtle syntax), and using the following ontology: 
+        Describe the claim of the abstract above only using RDF (the turtle syntax), and using the following ontology:
 
-        :hasStudy rdfs:domain bibo:AcademicArticle . 
+        :hasStudy rdfs:domain bibo:AcademicArticle .
         :hasStudy rdfs:range sio:ObservationalStudy .
-        :hasHypothesis rdfs:domain sio:ObservationalStudy . 
-        :hasHypothesis rdfs:range sio:Hypothesis . 
-        :independentVariable rdfs:domain sio:Hypothesis. 
-        :independentVariable rdfs:range qb:DimensionProperty . 
-        :mediatorVariable rdfs:domain sio:Hypothesis . 
+        :hasHypothesis rdfs:domain sio:ObservationalStudy .
+        :hasHypothesis rdfs:range sio:Hypothesis .
+        :independentVariable rdfs:domain sio:Hypothesis.
+        :independentVariable rdfs:range qb:DimensionProperty .
+        :mediatorVariable rdfs:domain sio:Hypothesis .
         :mediatorVariable rdfs:range :DimensionProperty .
-        :dependentVariable rdfs:domain sio:Hypothesis . 
-        :dependentVariable rdfs:range qb:MeasureProperty.  
-        :hasRelation rdfs:domain :Hypothesis . 
-        :hasRelation rdfs:range :RelationProperty . 
-        :hasQualifier rdfs:domain :Hypothesis . 
-        :hasQualifier rdfs:range :Qualifier . 
-        :moderatorVariable rdfs:domain sio:Hypothesis . 
+        :dependentVariable rdfs:domain sio:Hypothesis .
+        :dependentVariable rdfs:range qb:MeasureProperty.
+        :hasRelation rdfs:domain :Hypothesis .
+        :hasRelation rdfs:range :RelationProperty .
+        :hasQualifier rdfs:domain :Hypothesis .
+        :hasQualifier rdfs:range :Qualifier .
+        :moderatorVariable rdfs:domain sio:Hypothesis .
         :moderatorVariable rdfs:range :DimensionProperty .
-        :moderatorEffectOnStatementStrength rdfs:domain :Hypothesis . 
+        :moderatorEffectOnStatementStrength rdfs:domain :Hypothesis .
         :moderatorEffectOnStatementStrength rdfs:range :Qualifier .
         :hasContext rdfs:domain sio:Hypothesis, :Moderator, :Mediator .
-        :hasContext rdfs:range sio:HumanPopulation, sio:GeographicRegion, sio:Organization . 
-        :representedBy rdfs:domain sio:HumanPopulation, sio:GeographicRegion, sio:Organization . 
-        :representedBy rdfs:range :Sample . 
-        time:hasTime rdfs:domain :Sample . 
-        time:hasTime rdfs:range time:TemporalEntity . 
-        sem:hasPlace rdfs:domain :Sample . 
-        sem:hasPlace rdfs:range sio:GeographicRegion . 
-        geonames:locatedIn rdfs:domain sio:GeographicRegion . 
-        geonames:locatedIn rdfs:range geonames:Feature . 
-        time:hasBeginning rdfs:domain rdf:TemporalEntity . 
-        time:hasBeginning rdfs:range time:Instant . 
-        time:hasEnd rdfs:domain rdf:TemporalEntity . 
-        time:hasEnd rdfs:range time:Instant . 
-        time:inXSDDate rdfs:domain time:Instant . 
+        :hasContext rdfs:range sio:HumanPopulation, sio:GeographicRegion, sio:Organization .
+        :representedBy rdfs:domain sio:HumanPopulation, sio:GeographicRegion, sio:Organization .
+        :representedBy rdfs:range :Sample .
+        time:hasTime rdfs:domain :Sample .
+        time:hasTime rdfs:range time:TemporalEntity .
+        sem:hasPlace rdfs:domain :Sample .
+        sem:hasPlace rdfs:range sio:GeographicRegion .
+        geonames:locatedIn rdfs:domain sio:GeographicRegion .
+        geonames:locatedIn rdfs:range geonames:Feature .
+        time:hasBeginning rdfs:domain rdf:TemporalEntity .
+        time:hasBeginning rdfs:range time:Instant .
+        time:hasEnd rdfs:domain rdf:TemporalEntity .
+        time:hasEnd rdfs:range time:Instant .
+        time:inXSDDate rdfs:domain time:Instant .
         time:inXSDDate rdfs:range rdf:XMLLiteral .
-        
-        1. use rdfs:label to describe all blank nodes, also the geographic region. Use short descriptions, pieces of text verbatim from the abstract, and add language tags to all labels. An example would be: [] :hasSubject [ rdfs:label 'social class'@en ]. 
 
-        2. for instances of the class geonames:Feature, find the URI for the place name in geonames (uri = https://www.geonames.org/<code>) like so: [] geonames:locatedIn <uri> (Don't leave any spaces between the URI and angle brackets). If you cannot find a place in the abstract, omit these triples.  
-        
+        1. use rdfs:label to describe all blank nodes, also the geographic region. Use short descriptions, pieces of text verbatim from the abstract, and add language tags to all labels. An example would be: [] :hasSubject [ rdfs:label 'social class'@en ].
+
+        2. for instances of the class geonames:Feature, find the URI for the place name in geonames (uri = https://www.geonames.org/<code>) like so: [] geonames:locatedIn <uri> (Don't leave any spaces between the URI and angle brackets). If you cannot find a place in the abstract, omit these triples.
+
         3. use prefixes (xsd,time,ex,geonames,rdf,rdfs,sem,skos,sio,sp) (the namespace for sp is https://w3id.org/linkflows/superpattern/latest/)
-            
-        4. the individual of bibo:AcademicArticle is: ex:"""+paper['paperId']+""". Don't enclose the individual with brackets. 
+
+        4. the individual of bibo:AcademicArticle is: ex:"""+paper['paperId']+""". Don't enclose the individual with brackets.
 
         5. If you can't find a time reference in the abstract, try to estimate the dates.
-        
-        6. include all classes of all individuals using rdf:type 
-                
+
+        6. include all classes of all individuals using rdf:type
+
         7. a hypothesis describes the effect of an independent variable (such as social class or age) on a dependent variable (such as mortality). Optional variables are: a mediating variable (such as a country's living standards), which explains the process through which the independent and dependent variables are related, and a moderating variable which affects the strength and direction of that relationship.
 
         8. for values of :hasRelation use sp:affects
@@ -81,25 +85,25 @@ def semantify_paper_batch(papers,api_key):
         9. for qualifiers, choose from the following: :strongMediumNegative, :strongMedium, :weakNegative, :weak, :no, :weakPositive, :strongMediumPositive)
 
         10. don't create your own identifiers but use blank nodes in case no IRI is available
-        
-        11. make sure to add a qualifier for the relation between independent and dependent variable, but also to the moderator. 
-        
-        12. link hypothesis contexts to study indicators of that context. For example, if the modifier variable is food prices, it could be that the context is a geographic region with the indicator Recession. 
-        
-        Only return proper RDF, no free text comments. 
+
+        11. make sure to add a qualifier for the relation between independent and dependent variable, but also to the moderator.
+
+        12. link hypothesis contexts to study indicators of that context. For example, if the modifier variable is food prices, it could be that the context is a geographic region with the indicator Recession.
+
+        Only return proper RDF, no free text comments.
         """
-        
-        try: 
-            response = openai.ChatCompletion.create(model="gpt-4", 
+
+        try:
+            response = openai.ChatCompletion.create(model="gpt-4",
                                                 messages=[{"role": "user", "content": prompt_text}],
                                                 temperature=0)
-        except: 
-            response = openai.ChatCompletion.create(model="gpt-4", 
+        except:
+            response = openai.ChatCompletion.create(model="gpt-4",
                                                 messages=[{"role": "user", "content": prompt_text}],
-                                                temperature=0)     
+                                                temperature=0)
         prefixes = """
         @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-        @prefix bibo: <http://purl.org/ontology/bibo/> . 
+        @prefix bibo: <http://purl.org/ontology/bibo/> .
         @prefix time: <http://www.w3.org/2006/time#> .
         @prefix ex: <http://example.org/> .
         @prefix geonames: <http://www.geonames.org/ontology#> .
@@ -110,16 +114,16 @@ def semantify_paper_batch(papers,api_key):
         @prefix sio: <http://semanticscience.org/resource/> .
         @prefix sp: <https://w3id.org/linkflows/superpattern/latest/> .
         @prefix qb: <http://purl.org/linked-data/cube#> .
-        @prefix : <http://example.org/> . 
+        @prefix : <http://example.org/> .
         """
-        try: 
+        try:
             print(paper['abstract']+'\n')
             print(response.choices[0].message.content)
             g=Graph()
             g.parse(data=prefixes+response.choices[0].message.content, format="turtle")
             full_g += g
-        except Exception as e: 
-            print(e)    
+        except Exception as e:
+            print(e)
     full_g = full_g.skolemize()
     return full_g
 
@@ -154,26 +158,26 @@ def process_graph(batch):
         batch.add(triple)
 
     query = """
-    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-    prefix mira: <https://w3id.org/muhai-project/mira/> 
+    prefix mira: <https://w3id.org/muhai-project/mira/>
 
     construct {
          ?interaction a mira:Explanation ;
-                 a mira:InteractionEffect ; 
-                 mira:hasSubject ?mod_var ; 
-                 mira:hasRelation mira:moderates ;  
-                 mira:hasObject ?exp ; 
+                 a mira:InteractionEffect ;
+                 mira:hasSubject ?mod_var ;
+                 mira:hasRelation mira:moderates ;
+                 mira:hasObject ?exp ;
                  mira:hasQualifier ?qual .
          ?mod_var ?p ?o .
     } where {
         ?exp a mira:Explanation ;
-            mira:hasModerator ?mod_var ; 
-            mira:moderatorEffectOnStatementStrength ?qual . 
-        ?mod_var ?p ?o . 
+            mira:hasModerator ?mod_var ;
+            mira:moderatorEffectOnStatementStrength ?qual .
+        ?mod_var ?p ?o .
         ?mod_var rdfs:label ?label .
         BIND (IRI(CONCAT("https://w3id.org/muhai-project/mira/", REPLACE(LCASE(STR(?label)), " ", "_"))) AS ?interaction)
-    } 
+    }
     """
     # Execute the SPARQL query
     query_result = batch.query(query)
@@ -184,7 +188,7 @@ def process_graph(batch):
         mods.add((s, p, o))
 
     delete_query = """
-    prefix mira: <https://w3id.org/muhai-project/mira/> 
+    prefix mira: <https://w3id.org/muhai-project/mira/>
 
     delete {?exp mira:hasModerator ?mod_var } where {?exp mira:hasModerator ?mod_var };
 
@@ -192,18 +196,18 @@ def process_graph(batch):
     batch.update(delete_query)
 
     delete_query = """
-    prefix mira: <https://w3id.org/muhai-project/mira/> 
+    prefix mira: <https://w3id.org/muhai-project/mira/>
 
     delete {?exp mira:moderatorEffectOnStatementStrength ?qual } where {?exp mira:moderatorEffectOnStatementStrength ?qual }
 
     """
     batch.update(delete_query)
     batch += mods
-    return batch 
+    return batch
 
-def add_bibo(papers,batch): 
+def add_bibo_metadata(papers,batch):
     for s,p,o in batch.triples((None,RDF.type,URIRef("http://purl.org/ontology/bibo/AcademicArticle"))):
-        for paper in papers: 
+        for paper in papers:
             if paper['paperId'] == s.n3().split('/')[-1].split('>')[0]:
                 batch.add((s,URIRef("http://purl.org/dc/terms/identifier"),Literal(paper['paperId'])))
                 batch.add((s,URIRef("http://purl.org/dc/terms/title"),Literal(paper['title'])))
@@ -213,7 +217,7 @@ def add_bibo(papers,batch):
                 if paper['publicationDate'] != None:
                     date = paper['publicationDate'].split('-')
                     date_obj = datetime.date(int(date[0]), int(date[1]), int(date[2]))
-                else: 
+                else:
                     year = paper['year']
                     date_obj = datetime.date(year, 1, 1)
                 date_str = date_obj.isoformat()
@@ -226,7 +230,7 @@ def add_bibo(papers,batch):
                     batch.add((s,URIRef("http://purl.org/ontology/bibo/cites"),URIRef('http://example.org/'+referenceId)))
     return batch
 
-def add_geoinfo(batch): 
+def add_geonames_metadata(batch):
      query = """
     PREFIX wgs84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#>
     prefix gn: <http://www.geonames.org/ontology#>
@@ -235,21 +239,21 @@ def add_geoinfo(batch):
 
     construct {
     ?location gn:locatedIn ?geonamesId .
-    ?geonamesId rdf:type gn:Feature . 
-    ?geonamesId gn:name ?label .         
-    ?geonamesId wgs84_pos:long ?long . 
-    ?geonamesId wgs84_pos:lat ?lat . 
+    ?geonamesId rdf:type gn:Feature .
+    ?geonamesId gn:name ?label .
+    ?geonamesId wgs84_pos:long ?long .
+    ?geonamesId wgs84_pos:lat ?lat .
 
     } where {
-    ?location gn:locatedIn ?geoLocation .    
+    ?location gn:locatedIn ?geoLocation .
     BIND(IRI(CONCAT(CONCAT("http://sws.geonames.org/",REPLACE(STR(?geoLocation),"https://www.geonames.org/", "")),"/")) AS ?geonamesId)
 
       SERVICE <http://factforge.net/repositories/ff-news> {
             ?geonamesId gn:name ?label .
-            ?geonamesId wgs84_pos:long ?long . 
-            ?geonamesId wgs84_pos:lat ?lat . 
-            FILTER ( datatype(?lat) = xsd:float) 
-            FILTER ( datatype(?long) = xsd:float) 
+            ?geonamesId wgs84_pos:long ?long .
+            ?geonamesId wgs84_pos:lat ?lat .
+            FILTER ( datatype(?lat) = xsd:float)
+            FILTER ( datatype(?long) = xsd:float)
        }
     }
     """
@@ -259,8 +263,8 @@ def add_geoinfo(batch):
     geo = Graph()
     for row in query_result:
         s, p, o = row
-        geo.add((s, p, o)) 
-        
+        geo.add((s, p, o))
+
     delete_query = """
     prefix gn: <http://www.geonames.org/ontology#>
     delete {?location gn:locatedIn ?geoLocation } where {?location gn:locatedIn ?geoLocation }
@@ -269,11 +273,11 @@ def add_geoinfo(batch):
     batch.update(delete_query)
 
     batch += geo
-    
-    
-def validate_graph(batch):
+
+
+def validate_graph(batch,shacl_file):
     shacl_graph = Graph()
-    shacl_graph.parse('./MIRA-ontology/mira/validation/shacl-shapes-miragraph.ttl', format="ttl")
+    shacl_graph.parse(shacl_file, format="ttl")
     print(shacl_graph.serialize(format='turtle'))
     r = validate(batch,
           shacl_graph=shacl_graph)
@@ -291,15 +295,15 @@ def validate_graph(batch):
         print(results_graph.serialize(format='turtle'))
 
 
-def get_variables(batch): 
+def get_variables(batch):
     query = """
         PREFIX qb: <http://purl.org/linked-data/cube#>
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-        select ?concept ?label where { 
-            VALUES ?type {qb:DimensionProperty qb:MeasureProperty}.  
-            ?concept a ?type . 
-            ?concept rdfs:label ?label 
-        } 
+        select ?concept ?label where {
+            VALUES ?type {qb:DimensionProperty qb:MeasureProperty}.
+            ?concept a ?type .
+            ?concept rdfs:label ?label
+        }
     """
     results = batch.query(query)
     data = []
@@ -310,10 +314,10 @@ def get_variables(batch):
 def get_nes(var):
     # Process the text with SpaCy
     doc = nlp(var)
-    
+
     # Extract named entities
     nouns = [token.text for token in doc if token.pos_ == "NOUN"]
-    
+
     # Retrieve noun phrases (nouns with their modifying adjectives)
     noun_phrases = []
     current_phrase = ""
@@ -327,8 +331,8 @@ def get_nes(var):
     return noun_phrases
 
 def clean_terms_for_mapping(graph_df):
-    for var in graph_df.columns.tolist(): 
-        if var.endswith('label'): 
+    for var in graph_df.columns.tolist():
+        if var.endswith('label'):
             dic = dict()
             dic = {idx:get_nes(value.n3().split('@en')[0]) if value else '' for idx,value in enumerate(graph_df[var].values)}
             dic = {key: [item.lower().replace('inequality','') for item in value] for key, value in dic.items()}
@@ -343,15 +347,14 @@ def clean_terms_for_mapping(graph_df):
     return graph_df
 
 
-
 def map_to_bioportal(df):
     mappings = pd.DataFrame(columns=["Source Term ID","Source Term","Mapped Term Label","Mapped Term CURIE","Mapped Term IRI","Mapping Score","Tags"])
     for idx,row in df.iterrows():
         try:
-            mapping = text2term.map_terms(row.values[0], 
+            mapping = text2term.map_terms(row.values[0],
                                    target_ontology='MESH,DOID,HHEAR,SIO,IOBC',
-                                   min_score=0.9, 
-                                   separator=',', 
+                                   min_score=0.9,
+                                   separator=',',
                                    use_cache=True,
                                    term_type='classes',
                                     mapper="bioportal",
@@ -373,10 +376,10 @@ def retrieve_mappings(row_graph_df,mappings):
 def annotate_graph_bioportal(batch):
     #get variables to map
     df = semantify.get_variables(batch)
-    
+
     #clean variables (split terms, find variations)
     df = semantify.clean_terms_for_mapping(df)
-    
+
     #find mappings for cleaned terms
     mappings = semantify.map_to_bioportal(df[['label_cleaned']])
     df['mappings'] = df[['label_cleaned']].apply(semantify.retrieve_mappings, axis=1,args=(mappings,))
@@ -390,6 +393,31 @@ def annotate_graph_bioportal(batch):
                 bioIRIs.add((URIRef(identifier),RDFS.label,Literal(label)))
                 bioIRIs.add((URIRef(identifier),RDF.type,SKOS.Concept))
     batch += bioIRIs
-    return batch 
+    return batch
 
-    
+
+
+def main(paper_file, shacl_file, api_key):
+
+    with open(paper_file, 'rb') as fp:
+        papers = pickle.load(fp)
+
+    batch = semantify_paper_batch(papers,api_key)
+    batch = process_graph(batch)
+    batch = add_bibo_metadata(papers,batch)
+    batch = add_geonames_metadata(batch)
+    batch = annotate_graph_bioportal(batch)
+    validate_graph(batch,shacl_file)
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Script turning paper abstracts into RDF in terms of the MIRA ontology.")
+
+    parser.add_argument("paper_file", type=str, required=True, help="Path to the file with paper abstracts. File content has to be a list of dictionaries with the following keys: dict_keys(['paperId','title','abstract','year','publicationDate','authors','references'])")
+    parser.add_argument("api_key", type=str, required=True, help="Key for openai.api_key")
+    parser.add_argument("shacl_file", type=str, required=False, help="Path to shacl file for validation.")
+    parser.add_argument("output", type=str, required=True, help="Path to .ttl file for storing the output graph.")
+    parser.add_argument("max", type=int, required=False, help="Max number of files to process.")
+
+    args = parser.parse_args()
+    main(args.paper_file, args.shacl_file, args.api_key, args.max)
