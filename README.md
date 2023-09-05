@@ -27,34 +27,27 @@ by: (i) prompting a Large Language Model to annotate paper abstracts, (ii) mappi
 
 ### Prerequisites
 
-List any prerequisites or dependencies that users need to install before using your project.
 
 ### Installation
 
-Provide clear instructions on how to install your project.
 
 ## Usage
 
-Explain how to use your project. Provide examples, code snippets, or instructions on how users can interact with your research.
 
 ## Data
 
-If applicable, describe the data you used in your research. Provide information about its source, format, and any preprocessing steps you performed.
+
 
 ## Results
 
-Present the results of your research. Include visualizations, graphs, or tables that showcase your findings.
 
 ## Contributing
 
-Explain how others can contribute to your project. Provide guidelines for submitting bug reports, feature requests, or code contributions.
 
 ## License
 
-Specify the license under which your project is released. Choose an open-source license that suits your project's needs.
 
 ## Acknowledgments
 
-Thank any individuals, organizations, or resources that have contributed to your research project.
 
 ---
