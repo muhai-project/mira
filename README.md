@@ -34,7 +34,7 @@ pip install -r requirements.txt
 
 The semantify.py script turns research paper abstracts of papers on social demography into RDF according to the MIRA ontology. It does so by: (i) prompting a Large Language Model to annotate paper abstracts, (ii) mapping concepts to terms from NCBO BioPortal ontologies and Geonames. An example annotation is shown in the figure below:
 
-![Example annotation]("https://github.com/muhai-project/mira/blob/main/figures/example-annotation.png")
+![Example annotation]("./figures/example-annotation.png")
 ```
 python semantify.py --paper_file paper_file.txt --api_key "api_key" --output graph.ttl --max 100
 ```
