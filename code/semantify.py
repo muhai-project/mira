@@ -398,32 +398,31 @@ def annotate_graph_bioportal(batch):
 
 
 
-def main(paper_file, api_key, max, output, print=False):
+def main(paper_file, api_key, max, output, verbose=0):
 
     print("Loading data from file "+paper_file+"...")
     with open(paper_file, 'rb') as fp:
         papers = pickle.load(fp)
-
-    if print:
+    if verbose:
         print("OpenAI annotation of batch ...")
     batch = semantify_paper_batch(papers,api_key,max)
-    if print:
+    if verbose:
         print(batch.serialize(format='turtle'))
     print("Process graph ...")
     batch = process_graph(batch)
-    if print:
+    if verbose:
         print(batch.serialize(format='turtle'))
     print("Add bibliographic information ...")
     batch = add_bibo_metadata(papers,batch)
-    if print:
+    if verbose:
         print(batch.serialize(format='turtle'))
     print("Link geonames metadata ...")
     batch = add_geonames_metadata(batch)
-    if print:
+    if verbose:
         print(batch.serialize(format='turtle'))
     print("Link concepts to terms from BioPortal (can take longer) ...")
     batch = annotate_graph_bioportal(batch)
-    if print:
+    if verbose:
         print(batch.serialize(format='turtle'))
     print("Store graph to file "+output+" ...")
     batch.serialize(output,format="ttl")
@@ -435,6 +434,6 @@ if __name__ == "__main__":
     parser.add_argument("--api_key", type=str, help="Key for openai.api_key")
     parser.add_argument("--output", type=str, help="Path to .ttl file for storing the output graph.")
     parser.add_argument("--max", type=int, help="Max number of files to process.")
-    parser.add_argument("--print", type=boolean, help="Print the annotations after each processing step, for debugging. Default False")
+    parser.add_argument("--print", type=int, help="Print the annotations after each processing step, for debugging. Default 0")
     args = parser.parse_args()
     main(args.paper_file, args.api_key, args.max, args.output,args.print)

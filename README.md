@@ -61,7 +61,7 @@ papers = [sch.get_paper(result.paperId) for result in results]
 You can use the validate.py script to validate the set against a set of SHACL shapes, developed according to a set of data quality criteria.
 
 ```
-python validate.py --shacl_file shacl_file.ttl --validation_output validation_results.ttl
+python validate.py --batch_file batch_file.ttl --shacl_file shacl_file.ttl --validation_output validation_results.ttl --verbose True
 
 ```
 ## License

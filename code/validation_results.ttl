@@ -1,0 +1,19 @@
+@prefix mira: <https://w3id.org/muhai-project/mira/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix sio: <http://semanticscience.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode <https://rdflib.github.io/.well-known/genid/rdflib/n71225ab90de64b548b9162951def781fb1> ;
+            sh:resultMessage "Value does not have class mira:Explanation" ;
+            sh:resultPath sio:SIO_000008 ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:ClassConstraintComponent ;
+            sh:sourceShape [ sh:class mira:Explanation ;
+                    sh:minCount 1 ;
+                    sh:nodeKind sh:IRI ;
+                    sh:path sio:SIO_000008 ] ;
+            sh:value <https://rdflib.github.io/.well-known/genid/rdflib/n71225ab90de64b548b9162951def781fb2> ] .
+
