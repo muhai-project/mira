@@ -13,18 +13,19 @@ import re
 from itertools import chain
 import spacy
 import numpy as np
-!python -m spacy download en_core_web_sm
+import pickle
+#!python -m spacy download en_core_web_sm
 nlp = spacy.load("en_core_web_sm")
 # your_script.py
 import argparse
 
 # Define your functions or classes here
 
-def semantify_paper_batch(papers,api_key):
+def semantify_paper_batch(papers,api_key,max=None):
     full_g = Graph()
     openai.api_key = api_key
 
-    for paper in tqdm(papers):
+    for paper in tqdm(papers[0:max]):
 
         prompt_text = """
         '"""+paper['abstract']+ """'
@@ -114,7 +115,7 @@ def semantify_paper_batch(papers,api_key):
         @prefix sio: <http://semanticscience.org/resource/> .
         @prefix sp: <https://w3id.org/linkflows/superpattern/latest/> .
         @prefix qb: <http://purl.org/linked-data/cube#> .
-        @prefix : <http://example.org/> .
+        @prefix : <https://w3id.org/mira/> .
         """
         try:
             print(paper['abstract']+'\n')
@@ -129,16 +130,16 @@ def semantify_paper_batch(papers,api_key):
 
 def process_graph(batch):
     # Define the old and new IRI prefixes
-    old_prefixes = ['HumanPopulation','http://example.org/hasStudy','Organization','GeographicRegion','GeographicalRegion',
-                    'http://example.org/representedBy','ObservationalStudy','http://example.org/hasHypothesis',
+    old_prefixes = ['HumanPopulation','https://w3id.org/mira/hasStudy','Organization','GeographicRegion','GeographicalRegion',
+                    'https://w3id.org/mira/representedBy','ObservationalStudy','https://w3id.org/mira/hasHypothesis',
                     'independentVariable','dependentVariable','http://semanticscience.org/resource/Hypothesis','moderatorVariable',
-                    'mediatorVariable','http://example.org/','https://w3id.org/muhai-project/mira/DimensionProperty',
-                    'http://purl.org/linked-data/cube#/DimensionProperty','http://purl.org/linked-data/cube#/MeasureProperty','https://w3id.org/muhai-project/mira/Sample']
+                    'mediatorVariable','https://w3id.org/mira/DimensionProperty',
+                    'http://purl.org/linked-data/cube#/DimensionProperty','http://purl.org/linked-data/cube#/MeasureProperty','https://w3id.org/mira/Sample']
     new_prefixes = ['SIO_001062','http://semanticscience.org/resource/SIO_000008','SIO_000012','SIO_000414','SIO_000414',
                     'http://semanticscience.org/resource/SIO_000205','SIO_000976','http://semanticscience.org/resource/SIO_000008',
-                    'hasSubject','hasObject','https://w3id.org/muhai-project/mira/Explanation','hasModerator','hasMediator',
-                    'https://w3id.org/muhai-project/mira/','http://purl.org/linked-data/cube#DimensionProperty',
-                    'http://purl.org/linked-data/cube#DimensionProperty','http://purl.org/linked-data/cube#MeasureProperty','http://semanticscience.org/resource/SIO_001050']
+                    'hasSubject','hasObject','https://w3id.org/mira/Explanation','hasModerator','hasMediator',
+                    'http://purl.org/linked-data/cube#DimensionProperty','http://purl.org/linked-data/cube#DimensionProperty',
+                    'http://purl.org/linked-data/cube#MeasureProperty','http://semanticscience.org/resource/SIO_001050']
 
     # Iterate through the triples in the graph and replace IRIs
     new_triples = []
@@ -160,7 +161,7 @@ def process_graph(batch):
     query = """
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-    prefix mira: <https://w3id.org/muhai-project/mira/>
+    prefix mira: <https://w3id.org/mira/>
 
     construct {
          ?interaction a mira:Explanation ;
@@ -176,7 +177,7 @@ def process_graph(batch):
             mira:moderatorEffectOnStatementStrength ?qual .
         ?mod_var ?p ?o .
         ?mod_var rdfs:label ?label .
-        BIND (IRI(CONCAT("https://w3id.org/muhai-project/mira/", REPLACE(LCASE(STR(?label)), " ", "_"))) AS ?interaction)
+        BIND (IRI(CONCAT("https://w3id.org/mira/", REPLACE(LCASE(STR(?label)), " ", "_"))) AS ?interaction)
     }
     """
     # Execute the SPARQL query
@@ -188,7 +189,7 @@ def process_graph(batch):
         mods.add((s, p, o))
 
     delete_query = """
-    prefix mira: <https://w3id.org/muhai-project/mira/>
+    prefix mira: <https://w3id.org/mira/>
 
     delete {?exp mira:hasModerator ?mod_var } where {?exp mira:hasModerator ?mod_var };
 
@@ -196,7 +197,7 @@ def process_graph(batch):
     batch.update(delete_query)
 
     delete_query = """
-    prefix mira: <https://w3id.org/muhai-project/mira/>
+    prefix mira: <https://w3id.org/mira/>
 
     delete {?exp mira:moderatorEffectOnStatementStrength ?qual } where {?exp mira:moderatorEffectOnStatementStrength ?qual }
 
@@ -231,7 +232,8 @@ def add_bibo_metadata(papers,batch):
     return batch
 
 def add_geonames_metadata(batch):
-     query = """
+
+    query = """
     PREFIX wgs84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#>
     prefix gn: <http://www.geonames.org/ontology#>
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -273,7 +275,7 @@ def add_geonames_metadata(batch):
     batch.update(delete_query)
 
     batch += geo
-
+    return batch
 
 def validate_graph(batch,shacl_file):
     shacl_graph = Graph()
@@ -293,7 +295,6 @@ def validate_graph(batch,shacl_file):
 
         # Print the number of violations
         print(results_graph.serialize(format='turtle'))
-
 
 def get_variables(batch):
     query = """
@@ -375,14 +376,14 @@ def retrieve_mappings(row_graph_df,mappings):
 
 def annotate_graph_bioportal(batch):
     #get variables to map
-    df = semantify.get_variables(batch)
+    df = get_variables(batch)
 
     #clean variables (split terms, find variations)
-    df = semantify.clean_terms_for_mapping(df)
+    df = clean_terms_for_mapping(df)
 
     #find mappings for cleaned terms
-    mappings = semantify.map_to_bioportal(df[['label_cleaned']])
-    df['mappings'] = df[['label_cleaned']].apply(semantify.retrieve_mappings, axis=1,args=(mappings,))
+    mappings = map_to_bioportal(df[['label_cleaned']])
+    df['mappings'] = df[['label_cleaned']].apply(retrieve_mappings, axis=1,args=(mappings,))
 
     #add mappings to concepts
     bioIRIs = Graph()
@@ -397,26 +398,43 @@ def annotate_graph_bioportal(batch):
 
 
 
-def main(paper_file, shacl_file, api_key):
+def main(paper_file, api_key, max, output, print=False):
 
+    print("Loading data from file "+paper_file+"...")
     with open(paper_file, 'rb') as fp:
         papers = pickle.load(fp)
 
-    batch = semantify_paper_batch(papers,api_key)
+    if print:
+        print("OpenAI annotation of batch ...")
+    batch = semantify_paper_batch(papers,api_key,max)
+    if print:
+        print(batch.serialize(format='turtle'))
+    print("Process graph ...")
     batch = process_graph(batch)
+    if print:
+        print(batch.serialize(format='turtle'))
+    print("Add bibliographic information ...")
     batch = add_bibo_metadata(papers,batch)
+    if print:
+        print(batch.serialize(format='turtle'))
+    print("Link geonames metadata ...")
     batch = add_geonames_metadata(batch)
+    if print:
+        print(batch.serialize(format='turtle'))
+    print("Link concepts to terms from BioPortal (can take longer) ...")
     batch = annotate_graph_bioportal(batch)
+    if print:
+        print(batch.serialize(format='turtle'))
+    print("Store graph to file "+output+" ...")
     batch.serialize(output,format="ttl")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Script turning paper abstracts into RDF in terms of the MIRA ontology.")
 
-    parser.add_argument("paper_file", type=str, required=True, help="Path to the file with paper abstracts. File content has to be a list of dictionaries with the following keys: dict_keys(['paperId','title','abstract','year','publicationDate','authors','references'])")
-    parser.add_argument("api_key", type=str, required=True, help="Key for openai.api_key")
-    parser.add_argument("shacl_file", type=str, required=False, help="Path to shacl file for validation.")
-    parser.add_argument("output", type=str, required=True, help="Path to .ttl file for storing the output graph.")
-    parser.add_argument("max", type=int, required=False, help="Max number of files to process.")
-
+    parser.add_argument("--paper_file", type=str, help="Path to the file with paper abstracts. File content has to be a list of dictionaries with the following keys: dict_keys(['paperId','title','abstract','year','publicationDate','authors','references'])")
+    parser.add_argument("--api_key", type=str, help="Key for openai.api_key")
+    parser.add_argument("--output", type=str, help="Path to .ttl file for storing the output graph.")
+    parser.add_argument("--max", type=int, help="Max number of files to process.")
+    parser.add_argument("--print", type=boolean, help="Print the annotations after each processing step, for debugging. Default False")
     args = parser.parse_args()
-    main(args.paper_file, args.shacl_file, args.api_key, args.max,args.output)
+    main(args.paper_file, args.api_key, args.max, args.output,args.print)

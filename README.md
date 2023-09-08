@@ -40,12 +40,13 @@ The semantify.py script turns research paper abstracts of papers on social demog
 
 ![Example annotation](./figures/example-annotation.png)
 ```
-python semantify.py --paper_file paper_file.txt --api_key "api_key" --output graph.ttl --max 100
+python semantify.py --paper_file paper_file.pkl --api_key "api key" --output output_graph.ttl --max 1 --print True
+
 ```
 
-The location of the input file, the openAI api key, and the output file are required arguments. Max is optional and indicates how many papers to process.
+The location of the input file, the openAI api key, and the output file are required arguments. Max and print are optional and indicate how many papers to process, and whether to print the serialised RDF after each step. _To check whether all works as expected, we recommend to first set these to 1 and True, before processing a large batch._
 
-The --paper_file argument expects the location of a file which includes a list of dictionaries with the following keys:
+The --paper_file argument expects the location of a pickle file (.pkl) which consists of a list of dictionaries with the following keys:
 dict_keys(['paperId','title','abstract','year','publicationDate','authors','references'])
 These can, for instance, be retrieved from Semantic Scholar:
 
