@@ -13,10 +13,14 @@ This github presents the MIRA-KG, a knowledge graph designed to capture hypothes
 
 ## Overview
 
-The ontology links datasets, structured as instances of qb:DataSet, to research questions in the domain of social demography. The ontology is populated by structured research questions on health inequality, queriable via a [SPARQL endpoint](
+Research questions for social history research, such as from social demography, commonly include (i) descriptive questions, (ii) comparative questions, and (iii) explanatory questions. Here, each question is based on the output from the previous one. Preferably, these questions are all derived from one another, and from the dataset. See the image below. The MIRA ontology thus links datasets to questions, preferably as linked open data according to the RDF Data Cube Vocabulary. An example is shown in the figure below.
+
+![Example annotation](./figures/data-explanations.png)
+
+The ontology is populated by structured research questions on health inequality, queriable via a [SPARQL endpoint](
 https://api.druid.datalegend.net/datasets/lisestork/MIRA-KG/services/MIRA-KG/sparql).
 
-This github contains the ontology, example annotations, scripts to produce structured annotations automatically, and SHACL shapes for validation of their structure.
+This github contains the ontology, example annotations, scripts to produce structured annotations automatically from paper abstracts, and SHACL shapes for the validation of generated annotations.
 
 ### Prerequisites
 
