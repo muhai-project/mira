@@ -20,7 +20,10 @@ This github contains the ontology, example annotations, scripts to produce struc
 
 ## Getting Started
 
-The semantify.py script turns abstracts into RDF according to the MIRA ontology. It does so by: (i) prompting a Large Language Model to annotate paper abstracts, (ii) mapping concepts to terms from NCBO BioPortal ontologies and Geonames, and (iii) refining the final graph by a set of SHACL constraints, developed according to a set of data quality criteria.
+The semantify.py script turns research paper abstracts of papers on social demography into RDF according to the MIRA ontology. It does so by: (i) prompting a Large Language Model to annotate paper abstracts, (ii) mapping concepts to terms from NCBO BioPortal ontologies and Geonames.
+You can use the validate.py script to validate the set against a set of SHACL shapes, developed according to a set of data quality criteria. An example annotation is shown in the figure below:
+
+![Example annotation]("./figures/example-annotation.png")
 
 ### Prerequisites
 
@@ -35,19 +38,19 @@ pip install -r requirements.txt
 ### Usage
 
 ```
-python semantify.py --paper_file paper_file.txt --api_key "api_key" --shacl_file shacl_file.ttl --output graph.ttl --max 100
+python semantify.py --paper_file paper_file.txt --api_key "api_key" --output graph.ttl --max 100
+python validate.py --shacl_file shacl_file.ttl --validation_output validation_results.ttl
+
 ```
-
-the location of the input file, the openAI api key, and the output file are required arguments. The shacl_file and max are optional. The max argument decides the number of papers that are processed by the script.
-
-
-## Contributing
+The location of the input file, the openAI api key, and the output file are required arguments. Max is optional and indicates how many papers to process.
 
 
 ## License
 
+This project is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
 
 ## Acknowledgments
-
+This work was funded by the European MUHAI project (Horizon 2020 research and innovation program) under grant agreement
+number 951846. We thank Tobias Kuhn and Inès Blin for the insightful discussions that contributed to this work.
 
 ---

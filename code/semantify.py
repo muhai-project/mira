@@ -407,8 +407,7 @@ def main(paper_file, shacl_file, api_key):
     batch = add_bibo_metadata(papers,batch)
     batch = add_geonames_metadata(batch)
     batch = annotate_graph_bioportal(batch)
-    validate_graph(batch,shacl_file)
-
+    batch.serialize(output,format="ttl")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Script turning paper abstracts into RDF in terms of the MIRA ontology.")
@@ -420,4 +419,4 @@ if __name__ == "__main__":
     parser.add_argument("max", type=int, required=False, help="Max number of files to process.")
 
     args = parser.parse_args()
-    main(args.paper_file, args.shacl_file, args.api_key, args.max)
+    main(args.paper_file, args.shacl_file, args.api_key, args.max,args.output)
