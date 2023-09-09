@@ -43,7 +43,7 @@ The semantify.py script turns research paper abstracts of papers on social demog
 To test the code, you can use the example paper_file.pkl file with papers on social health inequality.
 
 ```
-python semantify.py --paper_file ../data/paper_file.pkl --api_key "your api key" --output ../data/test_output.ttl --max 1 --print 1
+python semantify.py --paper_file ../data/paper_file.pkl --api_key "your api key" --output ../data/test_output.ttl --max 1 --view 1
 ```
 
 The location of the input file, the openAI api key, and the output file are required arguments. Max and print are optional and indicate how many papers to process, and whether to print the serialised RDF after each step. _To check whether all works as expected, we recommend to first set these to 1 and True, before processing a large batch._
@@ -63,7 +63,7 @@ papers = [sch.get_paper(result.paperId) for result in results]
 You can use the validate.py script to validate the set against a set of SHACL shapes, developed according to a set of data quality criteria.
 
 ```
-python validate.py --batch_file ../data/test_output.ttl --shacl_file ../validation/shacl-shapes.ttl --validation_output validation_results.ttl --verbose 1
+python validate.py --batch_file ../data/test_output.ttl --shacl_file ../validation/shacl-shapes.ttl --validation_output validation_results.ttl --view 1
 ```
 ## License
 

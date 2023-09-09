@@ -4,7 +4,7 @@ from rdflib.namespace import SKOS, RDF, RDFS, XSD
 from pyshacl import validate
 
 
-def validate_graph(batch_file,shacl_file,validation_output=None,verbose=False):
+def validate_graph(batch_file,shacl_file,validation_output=None,view=0):
     shacl_graph = Graph()
     shacl_graph.parse(shacl_file, format="ttl")
     batch_graph = Graph()
@@ -27,10 +27,10 @@ def validate_graph(batch_file,shacl_file,validation_output=None,verbose=False):
         results_graph.serialize(validation_output,format='turtle')
     return results_graph
 
-def main(batch_file, shacl_file,validation_output,verbose=False):
+def main(batch_file, shacl_file,validation_output,view=0):
 
     results_graph = validate_graph(batch_file,shacl_file,validation_output)
-    if verbose:
+    if view:
         print(results_graph.serialize(format='turtle'))
 
 if __name__ == "__main__":
@@ -39,7 +39,7 @@ if __name__ == "__main__":
     parser.add_argument("--shacl_file", type=str, help="Path to shacl file for validation.")
     parser.add_argument("--batch_file", type=str, help="Path to .ttl file for the batch to be validated.")
     parser.add_argument("--validation_output", type=str, help="Path to .ttl file for storing the output graph.")
-    parser.add_argument("--verbose", type=int, help="Print the shacl validations as a serialised graph.")
+    parser.add_argument("--view", type=int, help="Print the shacl validations as a serialised graph.")
 
     args = parser.parse_args()
-    main(args.batch_file,args.shacl_file,args.validation_output,args.verbose)
+    main(args.batch_file,args.shacl_file,args.validation_output,args.view)
