@@ -1,0 +1,9 @@
+numpy==1.24.4
+openai==0.27.9
+pandas==2.0.3
+pyshacl==0.23.0
+rdflib==7.0.0
+spacy==3.6.1
+text2term==3.0.2
+tqdm==4.66.1
+word_forms==2.1.0

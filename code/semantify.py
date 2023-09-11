@@ -5,7 +5,6 @@ from rdflib import Graph, URIRef, Namespace, Literal
 from rdflib.namespace import SKOS, RDF, RDFS, XSD
 import datetime
 import text2term
-import bioregistry
 from pyshacl import validate
 import pandas as pd
 from word_forms.word_forms import get_word_forms
@@ -16,10 +15,7 @@ import numpy as np
 import pickle
 #!python -m spacy download en_core_web_sm
 nlp = spacy.load("en_core_web_sm")
-# your_script.py
 import argparse
-
-# Define your functions or classes here
 
 def semantify_paper_batch(papers,api_key,max=None):
     full_g = Graph()

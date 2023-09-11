@@ -46,7 +46,7 @@ To test the code, you can use the example paper_file.pkl file with papers on soc
 python semantify.py --paper_file ../data/paper_file.pkl --api_key "your api key" --output ../data/test_output.ttl --max 1 --view 1
 ```
 
-The location of the input file, the openAI api key, and the output file are required arguments. Max and print are optional and indicate how many papers to process, and whether to print the serialised RDF after each step. _To check whether all works as expected, we recommend to first set these to 1 and True, before processing a large batch._
+The location of the input file, the openAI api key, and the output file are required arguments. Max and view are optional and indicate how many papers to process, and whether to print the serialised RDF after each step. _To check whether all works as expected, we recommend to first set these to 1 and True, before processing a large batch._
 
 The --paper_file argument expects the location of a pickle file (.pkl) which consists of a list of dictionaries with the following keys:
 dict_keys(['paperId','title','abstract','year','publicationDate','authors','references'])
