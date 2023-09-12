@@ -46,6 +46,8 @@ def semantify_paper_batch(papers,api_key,max=None):
         :moderatorVariable rdfs:range :DimensionProperty .
         :moderatorEffectOnStatementStrength rdfs:domain :Hypothesis .
         :moderatorEffectOnStatementStrength rdfs:range :Qualifier .
+        :moderatorContext rdfs:domain sio:Hypothesis . 
+        :moderatorContext rdfs:range sio:HumanPopulation, sio:GeographicRegion, sio:Organization . 
         :hasContext rdfs:domain sio:Hypothesis, :Moderator, :Mediator .
         :hasContext rdfs:range sio:HumanPopulation, sio:GeographicRegion, sio:Organization .
         :representedBy rdfs:domain sio:HumanPopulation, sio:GeographicRegion, sio:Organization .
@@ -158,19 +160,26 @@ def process_graph(batch):
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
     prefix mira: <https://w3id.org/mira/>
+    PREFIX sio: <http://semanticscience.org/resource/>
 
     construct {
+        ?study sio:SIO_000008 ?interaction .  
          ?interaction a mira:Explanation ;
                  a mira:InteractionEffect ;
                  mira:hasSubject ?mod_var ;
                  mira:hasRelation mira:moderates ;
                  mira:hasObject ?exp ;
-                 mira:hasQualifier ?qual .
+                 mira:hasQualifier ?qual ;
+                 mira:hasContext ?context . 
+         ?context sio:SIO_000205 ?sample . 
          ?mod_var ?p ?o .
     } where {
+        ?study sio:SIO_000008 ?exp .  
         ?exp a mira:Explanation ;
             mira:hasModerator ?mod_var ;
-            mira:moderatorEffectOnStatementStrength ?qual .
+            mira:moderatorEffectOnStatementStrength ?qual ;
+            mira:moderatorContext ?context ;
+            mira:hasContext/sio:SIO_000205 ?sample . 
         ?mod_var ?p ?o .
         ?mod_var rdfs:label ?label .
         BIND (IRI(CONCAT("https://w3id.org/mira/", REPLACE(LCASE(STR(?label)), " ", "_"))) AS ?interaction)
@@ -199,6 +208,15 @@ def process_graph(batch):
 
     """
     batch.update(delete_query)
+    
+    delete_query = """
+    prefix mira: <https://w3id.org/mira/>
+
+    delete {?exp mira:moderatorContext ?context } where {?exp mira:moderatorContext ?context }
+
+    """
+    batch.update(delete_query)
+    
     batch += mods
     return batch
 

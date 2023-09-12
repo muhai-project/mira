@@ -66,11 +66,21 @@ mira:Explanation a owl:Class ;
 
 mira:MainEffect a owl:Class ;
         rdfs:label "main effect";
-        rdfs:subClassOf mira:Explanation .
+        rdfs:subClassOf mira:Explanation ;
+        owl:equivalentClass [
+          rdf:type owl:Class ;
+          owl:onProperty mira:hasObject ;
+          owl:allValuesFrom qb:MeasureProperty .
+        ] .
 
 mira:InteractionEffect a owl:Class ;
         rdfs:label "interaction effect";
-        rdfs:subClassOf mira:Explanation .
+        rdfs:subClassOf mira:Explanation ;
+        owl:equivalentClass [
+          rdf:type owl:Class ;
+          owl:onProperty mira:hasObject ;
+          owl:allValuesFrom mira:Explanation .
+        ] .
 
 mira:Object a owl:Class ;
         rdfs:label "object".
