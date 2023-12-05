@@ -1,0 +1,24 @@
+PREFIX ... 
+select ?inf_cont_ent1 ?inf_cont_ent2 ?ice1_type ?ice2_type 
+        ?subject ?begin ?end ?name ?lat ?long where { 
+    ?comp a mira:Comparison . 
+        mira:hasSubject ?inf_cont_ent1 ; #descriptive statistic
+        mira:hasObject ?inf_cont_ent2 ; #descriptive statistic
+        mira:hasRelation ?relation ; #relation between the two descriptive statistics
+        mira:hasContext ?sample ;  #dataset used to calculate the statistics
+        SIO:SIO_000205 ?exp .
+    ?exp mira:hasSubject/qb:concept/rdfs:label ?subject ; #what is the subject of the claim
+         #the object of the claim is COVID-19 and Mortality
+         mira:hasObject/qb:concept mesh:D000086382, stato:STATO_0000414 .
+    ?inf_cont_ent1 sio:SIO_000332 ?component_property1 ; #what does the statistic measure
+        rdf:type ?ice1_type . #what type of statistic (e.g., a mean)
+    ?inf_cont_ent2 sio:SIO_000332 ?component_property2 ; #what does the statistic measure 
+        rdf:type ?ice2_type . #what type of statistic (e.g., a mean)
+    #what is the temporal and geographic coverage of the sample
+    ?sample time:hasTime/time:hasBeginning/time:inXSDDate ?begin ;  #start time
+        time:hasTime/time:hasEnd/time:inXSDDate ?end ; #end time
+        #retrieve geonames metadata
+        sem:hasPlace/gn:locatedIn ?gnId . 
+        ?gnId gn:name ?name ;
+            wgs84_pos:long ?long ; 
+            wgs84_pos:lat ?lat . }
