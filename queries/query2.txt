@@ -1,0 +1,15 @@
+PREFIX ...
+select distinct ?ind_lab ?ind_var ?qual 
+                    ?med_var ?med_lab where { 
+?exp mira:hasSubject/qb:concept/rdfs:label ?ind_lab; 
+     #what is the subject of the explanation
+     mira:hasSubject/qb:concept ?ind_var; 
+     #the object is COVID-19 mortality
+     mira:hasObject/qb:concept mesh:D000086382, 
+                                stato:STATO_0000414;
+     #what is the effectSize of the association
+     mira:hasEffectSize ?effectSize . 
+     #which variables mediate the association
+OPTIONAL{?exp mira:hasMediator ?med_var; 
+           mira:hasMediator/rdfs:label ?med_lab .}
+}
