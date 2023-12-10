@@ -20,7 +20,7 @@ Research questions for social history research, such as from social demography, 
 The ontology is populated by structured research questions on health inequality, queriable via a [SPARQL endpoint](
 https://api.druid.datalegend.net/datasets/lisestork/MIRA-KG/services/MIRA-KG/sparql).
 
-This github contains the ontology, example annotations, scripts to produce structured annotations automatically from paper abstracts (but only the explanatory questions and their evidence), and SHACL shapes for the validation of generated annotations.
+This [github](https://github.com/muhai-project/mira/) contains the ontology, example annotations, scripts to produce structured annotations automatically from paper abstracts (but only the explanatory questions and their evidence), and SHACL shapes for the validation of generated annotations.
 
 ### Prerequisites
 
