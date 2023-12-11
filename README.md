@@ -15,7 +15,7 @@ This github presents the MIRA-KG, a knowledge graph designed to capture hypothes
 
 Research questions for social history research, such as from social demography, commonly include (i) descriptive questions, (ii) comparative questions, and (iii) explanatory questions. Here, each question is based on the output from the previous one. Preferably, these questions are all derived from one another, and from the dataset. See the image below. The MIRA ontology thus links datasets to research questions to accommodate the research workflow of a social demographer/social historian towards more reusable, reproducible research. An example workflow is shown below. 
 
-![Example annotation](FAIRifing-SD.pdf)
+![Example annotation](figures/FAIRifing-SD.png)
 
 The [ontology](https://w3id.org/mira/ontology/) is populated by structured research questions on health inequality, extracted from abstracts of research papers, and is published on [Zenodo](https://doi.org/10.5281/zenodo.10286846), and queriable via a [SPARQL endpoint](
 https://api.druid.datalegend.net/datasets/lisestork/MIRA-KG/services/MIRA-KG/sparql).
@@ -39,6 +39,7 @@ pip install -r requirements.txt
 The semantify.py script turns research paper abstracts of papers on social demography into RDF according to the MIRA ontology. It does so by: (i) prompting a Large Language Model to annotate paper abstracts, (ii) mapping concepts to terms from NCBO BioPortal ontologies and Geonames. An example annotation is shown in the figure below:
 
 ![Example annotation](./figures/example-annotation.png)
+![Example annotation](./figures/example-annotation.html)
 
 To test the code, you can use the example paper_file.pkl file with papers on social health inequality.
 
