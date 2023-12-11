@@ -13,14 +13,14 @@ This github presents the MIRA-KG, a knowledge graph designed to capture hypothes
 
 ## Overview
 
-Research questions for social history research, such as from social demography, commonly include (i) descriptive questions, (ii) comparative questions, and (iii) explanatory questions. Here, each question is based on the output from the previous one. Preferably, these questions are all derived from one another, and from the dataset. See the image below. The MIRA ontology thus links datasets to questions, preferably as linked open data according to the RDF Data Cube Vocabulary. An example is shown in the figure below.
+Research questions for social history research, such as from social demography, commonly include (i) descriptive questions, (ii) comparative questions, and (iii) explanatory questions. Here, each question is based on the output from the previous one. Preferably, these questions are all derived from one another, and from the dataset. See the image below. The MIRA ontology thus links datasets to research questions to accommodate the research workflow of a social demographer/social historian towards more reusable, reproducible research. An example workflow is shown below. 
 
-![Example annotation](./figures/data-explanations.png)
+![Example annotation](./figures/FAIRifing-SD.pdf)
 
-The ontology is populated by structured research questions on health inequality, queriable via a [SPARQL endpoint](
+The [ontology](https://w3id.org/mira/ontology/) is populated by structured research questions on health inequality, extracted from abstracts of research papers, and is published on [Zenodo](https://doi.org/10.5281/zenodo.10286846), and queriable via a [SPARQL endpoint](
 https://api.druid.datalegend.net/datasets/lisestork/MIRA-KG/services/MIRA-KG/sparql).
 
-This [github](https://github.com/muhai-project/mira/) contains the ontology, example annotations, scripts to produce structured annotations automatically from paper abstracts (but only the explanatory questions and their evidence), and SHACL shapes for the validation of generated annotations.
+This [github](https://github.com/muhai-project/mira/) contains the ontology, example annotations, scripts to produce structured annotations automatically from paper abstracts (explanatory questions and metadata of evidence used to answer the RQs), and SHACL shapes for the validation of generated annotations.
 
 ### Prerequisites
 
