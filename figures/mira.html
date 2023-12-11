@@ -1,0 +1,179 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 800px;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+             #config {
+                 float: left;
+                 width: 400px;
+                 height: 600px;
+             }
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+            <div id="config"></div>
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#30ACBF", "id": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "ex:55755a5afa58bd73883942d822bd7829e554c840", "shape": "dot", "title": "ex:55755a5afa58bd73883942d822bd7829e554c840"}, {"color": "#30ACBF", "id": "https://www.semanticscholar.org/author/4715599", "label": "\u003chttps://www.semanticscholar.org/author/4715599\u003e", "shape": "dot", "title": "\u003chttps://www.semanticscholar.org/author/4715599\u003e"}, {"color": "#BF6075", "id": "http://purl.org/ontology/bibo/AcademicArticle", "label": "academic article", "shape": "dot", "title": "academic article"}, {"color": "#30ACBF", "id": "http://example.org/cfc3c00f8c58c1696262909aa0d0e4bba3be966b", "label": "ex:cfc3c00f8c58c1696262909aa0d0e4bba3be966b", "shape": "dot", "title": "ex:cfc3c00f8c58c1696262909aa0d0e4bba3be966b"}, {"color": "#30ACBF", "id": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b3", "label": "racial/ethnic composition and income inequality", "shape": "dot", "title": "racial/ethnic composition and income inequality"}, {"color": "#BF6075", "id": "http://purl.org/linked-data/cube#DimensionProperty", "label": "dimension property ", "shape": "dot", "title": "dimension property "}, {"color": "#30ACBF", "id": "https://www.semanticscholar.org/author/77046151", "label": "\u003chttps://www.semanticscholar.org/author/77046151\u003e", "shape": "dot", "title": "\u003chttps://www.semanticscholar.org/author/77046151\u003e"}, {"color": "#FF8000", "id": "http://purl.bioontology.org/ontology/MESH/D007182", "label": "Income", "shape": "dot", "title": "Income"}, {"color": "#BF6075", "id": "http://www.w3.org/2004/02/skos/core#Concept", "label": "concept", "shape": "dot", "title": "concept"}, {"color": "#30ACBF", "id": "http://example.org/e050b3a82aa0bd0782f3ff2cfa886f3446edf787", "label": "ex:e050b3a82aa0bd0782f3ff2cfa886f3446edf787", "shape": "dot", "title": "ex:e050b3a82aa0bd0782f3ff2cfa886f3446edf787"}, {"color": "#30ACBF", "id": "http://example.org/7a47d8d6917ff56ce1be69241287bc652f69b2d4", "label": "ex:7a47d8d6917ff56ce1be69241287bc652f69b2d4", "shape": "dot", "title": "ex:7a47d8d6917ff56ce1be69241287bc652f69b2d4"}, {"color": "#30ACBF", "id": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b2", "label": "positive associations of incidence and mortality rates with racial/ethnic composition and with income inequality", "shape": "dot", "title": "positive associations of incidence and mortality rates with racial/ethnic composition and with income inequality"}, {"color": "#BF6075", "id": "https://w3id.org/mira/Explanation", "label": "explanatory question", "shape": "dot", "title": "explanatory question"}, {"color": "#30ACBF", "id": "http://example.org/1196615040ead9031e176d29548dd3e8287e975e", "label": "ex:1196615040ead9031e176d29548dd3e8287e975e", "shape": "dot", "title": "ex:1196615040ead9031e176d29548dd3e8287e975e"}, {"color": "#30ACBF", "id": "http://example.org/80a7a3e2a4b8c69865328c7f11c4dd0d8e8c1963", "label": "ex:80a7a3e2a4b8c69865328c7f11c4dd0d8e8c1963", "shape": "dot", "title": "ex:80a7a3e2a4b8c69865328c7f11c4dd0d8e8c1963"}, {"color": "#30ACBF", "id": "http://example.org/a79b955a575344fc215f5e2dffe7581572483473", "label": "ex:a79b955a575344fc215f5e2dffe7581572483473", "shape": "dot", "title": "ex:a79b955a575344fc215f5e2dffe7581572483473"}, {"color": "#30ACBF", "id": "http://example.org/3efb7c3b3b04fab504efa54dbbe6076ef13ebbe9", "label": "ex:3efb7c3b3b04fab504efa54dbbe6076ef13ebbe9", "shape": "dot", "title": "ex:3efb7c3b3b04fab504efa54dbbe6076ef13ebbe9"}, {"color": "#30ACBF", "id": "http://example.org/ab546043d5994f31cf7aa4298cc6855bacd69eb6", "label": "ex:ab546043d5994f31cf7aa4298cc6855bacd69eb6", "shape": "dot", "title": "ex:ab546043d5994f31cf7aa4298cc6855bacd69eb6"}, {"color": "#30ACBF", "id": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b5", "label": "US counties", "shape": "dot", "title": "US counties"}, {"color": "#BF6075", "id": "http://semanticscience.org/resource/SIO_000414", "label": "geographic region", "shape": "dot", "title": "geographic region"}, {"color": "#30ACBF", "id": "http://example.org/c08618c338099849d573577846f6e7bea13d994f", "label": "ex:c08618c338099849d573577846f6e7bea13d994f", "shape": "dot", "title": "ex:c08618c338099849d573577846f6e7bea13d994f"}, {"color": "#30ACBF", "id": "http://example.org/ece08f8a60cca138c21585a513ee2fd89d5464a5", "label": "ex:ece08f8a60cca138c21585a513ee2fd89d5464a5", "shape": "dot", "title": "ex:ece08f8a60cca138c21585a513ee2fd89d5464a5"}, {"color": "#FF8000", "id": "http://purl.bioontology.org/ontology/MESH/Q000208", "label": "ethnology", "shape": "dot", "title": "ethnology"}, {"color": "#30ACBF", "id": "http://example.org/5a2ad714a996fa2de16acd0da9273a1aa593c9a0", "label": "ex:5a2ad714a996fa2de16acd0da9273a1aa593c9a0", "shape": "dot", "title": "ex:5a2ad714a996fa2de16acd0da9273a1aa593c9a0"}, {"color": "#30ACBF", "id": "http://example.org/e76ad7b7f579b9b79121c2e735ea2645727a4c67", "label": "ex:e76ad7b7f579b9b79121c2e735ea2645727a4c67", "shape": "dot", "title": "ex:e76ad7b7f579b9b79121c2e735ea2645727a4c67"}, {"color": "#30ACBF", "id": "https://w3id.org/linkflows/superpattern/latest/affects", "label": "sp:affects", "shape": "dot", "title": "sp:affects"}, {"color": "#30ACBF", "id": "55755a5afa58bd73883942d822bd7829e554c840", "label": "\"55755a5afa58bd73883942d822bd7829e554c840\"", "shape": "dot", "title": "\"55755a5afa58bd73883942d822bd7829e554c840\""}, {"color": "#30ACBF", "id": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b8", "label": "US counties", "shape": "dot", "title": "US counties"}, {"color": "#30ACBF", "id": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b4", "label": "COVID-19 incidence and mortality rates", "shape": "dot", "title": "COVID-19 incidence and mortality rates"}, {"color": "#BF6075", "id": "http://purl.org/linked-data/cube#MeasureProperty", "label": "measure property ", "shape": "dot", "title": "measure property "}, {"color": "#30ACBF", "id": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b6", "label": "genid:n4e6cf680a8f04bf1981c9f774040ebe0b6", "shape": "dot", "title": "genid:n4e6cf680a8f04bf1981c9f774040ebe0b6"}, {"color": "#BF6075", "id": "http://semanticscience.org/resource/SIO_001050", "label": "sample", "shape": "dot", "title": "sample"}, {"color": "#FF8000", "id": "http://purl.bioontology.org/ontology/MESH/D005006", "label": "Ethnicity", "shape": "dot", "title": "Ethnicity"}, {"color": "#30ACBF", "id": "http://example.org/ec55b1f9714014a48c04658595a117b66e0a7a12", "label": "ex:ec55b1f9714014a48c04658595a117b66e0a7a12", "shape": "dot", "title": "ex:ec55b1f9714014a48c04658595a117b66e0a7a12"}, {"color": "#30ACBF", "id": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b7", "label": "genid:n4e6cf680a8f04bf1981c9f774040ebe0b7", "shape": "dot", "title": "genid:n4e6cf680a8f04bf1981c9f774040ebe0b7"}, {"color": "#30ACBF", "id": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b9", "label": "genid:n4e6cf680a8f04bf1981c9f774040ebe0b9", "shape": "dot", "title": "genid:n4e6cf680a8f04bf1981c9f774040ebe0b9"}, {"color": "#30ACBF", "id": "http://example.org/2732fdcd3de5e72437cecdd9d02cc54dda23f8af", "label": "ex:2732fdcd3de5e72437cecdd9d02cc54dda23f8af", "shape": "dot", "title": "ex:2732fdcd3de5e72437cecdd9d02cc54dda23f8af"}, {"color": "#30ACBF", "id": "http://example.org/5497bca50f5ade72b3e4fa8ea1614839d51bd6b6", "label": "ex:5497bca50f5ade72b3e4fa8ea1614839d51bd6b6", "shape": "dot", "title": "ex:5497bca50f5ade72b3e4fa8ea1614839d51bd6b6"}, {"color": "#30ACBF", "id": "http://sws.geonames.org/6252001/", "label": "\u003chttp://sws.geonames.org/6252001/\u003e", "shape": "dot", "title": "\u003chttp://sws.geonames.org/6252001/\u003e"}, {"color": "#30ACBF", "id": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b1", "label": "cross-sectional ecological analysis of cumulative COVID-19 incidence and mortality rates", "shape": "dot", "title": "cross-sectional ecological analysis of cumulative COVID-19 incidence and mortality rates"}, {"color": "#FF8000", "id": "http://semanticscience.org/resource/SIO_001014", "label": "ethnicity", "shape": "dot", "title": "ethnicity"}, {"color": "#FF8000", "id": "http://purl.bioontology.org/ontology/MESH/D000086382", "label": "COVID-19", "shape": "dot", "title": "COVID-19"}, {"color": "#BF6075", "id": "http://www.w3.org/2006/time#Instant", "label": "time:Instant", "shape": "dot", "title": "time:Instant"}, {"color": "#30ACBF", "id": "http://example.org/68adb0eff6bf167837eb6f156fb1ccf17027437e", "label": "ex:68adb0eff6bf167837eb6f156fb1ccf17027437e", "shape": "dot", "title": "ex:68adb0eff6bf167837eb6f156fb1ccf17027437e"}, {"color": "#30ACBF", "id": "-100.0", "label": "\"-100.0\"^^xsd:float", "shape": "dot", "title": "\"-100.0\"^^xsd:float"}, {"color": "#30ACBF", "id": "http://example.org/02d2cff978a4d862f7ecbcb19a335651ec4e428a", "label": "ex:02d2cff978a4d862f7ecbcb19a335651ec4e428a", "shape": "dot", "title": "ex:02d2cff978a4d862f7ecbcb19a335651ec4e428a"}, {"color": "#30ACBF", "id": "http://example.org/dd01298e3fb3c2429b989cfec73f928dc6b532a4", "label": "ex:dd01298e3fb3c2429b989cfec73f928dc6b532a4", "shape": "dot", "title": "ex:dd01298e3fb3c2429b989cfec73f928dc6b532a4"}, {"color": "#FF8000", "id": "http://purl.obolibrary.org/obo/STATO_0000414", "label": "mortality", "shape": "dot", "title": "mortality"}, {"color": "#30ACBF", "id": "https://doi.org/10.1001/jamanetworkopen.2020.34578", "label": "\u003chttps://doi.org/10.1001/jamanetworkopen.2020.34578\u003e", "shape": "dot", "title": "\u003chttps://doi.org/10.1001/jamanetworkopen.2020.34578\u003e"}, {"color": "#30ACBF", "id": "40.0", "label": "\"40.0\"^^xsd:float", "shape": "dot", "title": "\"40.0\"^^xsd:float"}, {"color": "#30ACBF", "id": "39.78667", "label": "\"39.78667\"^^xsd:float", "shape": "dot", "title": "\"39.78667\"^^xsd:float"}, {"color": "#30ACBF", "id": "2021-01-01", "label": "\"2021-01-01\"^^xsd:date", "shape": "dot", "title": "\"2021-01-01\"^^xsd:date"}, {"color": "#30ACBF", "id": "2020-01-01", "label": "\"2020-01-01\"^^xsd:date", "shape": "dot", "title": "\"2020-01-01\"^^xsd:date"}, {"color": "#30ACBF", "id": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b10", "label": "genid:n4e6cf680a8f04bf1981c9f774040ebe0b10", "shape": "dot", "title": "genid:n4e6cf680a8f04bf1981c9f774040ebe0b10"}, {"color": "#30ACBF", "id": "2020-07-19", "label": "\"2020-07-19\"^^xsd:date", "shape": "dot", "title": "\"2020-07-19\"^^xsd:date"}, {"color": "#30ACBF", "id": "United States", "label": "\"United States\"", "shape": "dot", "title": "\"United States\""}, {"color": "#30ACBF", "id": "http://example.org/47c7ea73de704b7da061a136d73d8dfaf4e88e47", "label": "ex:47c7ea73de704b7da061a136d73d8dfaf4e88e47", "shape": "dot", "title": "ex:47c7ea73de704b7da061a136d73d8dfaf4e88e47"}, {"color": "#BF6075", "id": "http://www.geonames.org/ontology#Feature", "label": "geonames feature", "shape": "dot", "title": "geonames feature"}, {"color": "#30ACBF", "id": "Association of Social and Economic Inequality With Coronavirus Disease 2019 Incidence and Mortality Across US Counties", "label": "\"Association of Social and Economic Inequality With Coronavirus Disease 2019 Incidence and Mortality Across US Counties\"", "shape": "dot", "title": "\"Association of Social and Economic Inequality With Coronavirus Disease 2019 Incidence and Mortality Across US Counties\""}, {"color": "#30ACBF", "id": "http://example.org/0aa3abd8365d38cb89b295d0fcdc9d158dbf128a", "label": "ex:0aa3abd8365d38cb89b295d0fcdc9d158dbf128a", "shape": "dot", "title": "ex:0aa3abd8365d38cb89b295d0fcdc9d158dbf128a"}, {"color": "#30ACBF", "id": "http://example.org/aa22b13462435be88e8b4179414c665a1a339e08", "label": "ex:aa22b13462435be88e8b4179414c665a1a339e08", "shape": "dot", "title": "ex:aa22b13462435be88e8b4179414c665a1a339e08"}, {"color": "#30ACBF", "id": "-83.17222", "label": "\"-83.17222\"^^xsd:float", "shape": "dot", "title": "\"-83.17222\"^^xsd:float"}, {"color": "#BF6075", "id": "http://semanticscience.org/resource/SIO_001062", "label": "human population", "shape": "dot", "title": "human population"}, {"color": "#30ACBF", "id": "http://example.org/350ef4353902017b7f03fb75db75e640c1c08ab1", "label": "ex:350ef4353902017b7f03fb75db75e640c1c08ab1", "shape": "dot", "title": "ex:350ef4353902017b7f03fb75db75e640c1c08ab1"}, {"color": "#BF6075", "id": "http://semanticscience.org/resource/SIO_000976", "label": "observational study", "shape": "dot", "title": "observational study"}, {"color": "#BF6075", "id": "http://www.w3.org/2006/time#TemporalEntity", "label": "temporal entity", "shape": "dot", "title": "temporal entity"}, {"color": "#30ACBF", "id": "https://w3id.org/mira/strongMediumPositive", "label": "mira:strongMediumPositive", "shape": "dot", "title": "mira:strongMediumPositive"}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "dcterms:contributor", "title": "dcterms:contributor", "to": "https://www.semanticscholar.org/author/4715599"}, {"arrows": "to", "from": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "rdf:type", "title": "rdf:type", "to": "http://purl.org/ontology/bibo/AcademicArticle"}, {"arrows": "to", "from": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "bibo:cites", "title": "bibo:cites", "to": "http://example.org/cfc3c00f8c58c1696262909aa0d0e4bba3be966b"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b3", "label": "rdf:type", "title": "rdf:type", "to": "http://purl.org/linked-data/cube#DimensionProperty"}, {"arrows": "to", "from": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "dcterms:contributor", "title": "dcterms:contributor", "to": "https://www.semanticscholar.org/author/77046151"}, {"arrows": "to", "from": "http://purl.bioontology.org/ontology/MESH/D007182", "label": "rdf:type", "title": "rdf:type", "to": "http://www.w3.org/2004/02/skos/core#Concept"}, {"arrows": "to", "from": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "bibo:cites", "title": "bibo:cites", "to": "http://example.org/e050b3a82aa0bd0782f3ff2cfa886f3446edf787"}, {"arrows": "to", "from": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "bibo:cites", "title": "bibo:cites", "to": "http://example.org/7a47d8d6917ff56ce1be69241287bc652f69b2d4"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b2", "label": "rdf:type", "title": "rdf:type", "to": "https://w3id.org/mira/Explanation"}, {"arrows": "to", "from": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "bibo:cites", "title": "bibo:cites", "to": "http://example.org/1196615040ead9031e176d29548dd3e8287e975e"}, {"arrows": "to", "from": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "bibo:cites", "title": "bibo:cites", "to": "http://example.org/80a7a3e2a4b8c69865328c7f11c4dd0d8e8c1963"}, {"arrows": "to", "from": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "bibo:cites", "title": "bibo:cites", "to": "http://example.org/a79b955a575344fc215f5e2dffe7581572483473"}, {"arrows": "to", "from": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "bibo:cites", "title": "bibo:cites", "to": "http://example.org/3efb7c3b3b04fab504efa54dbbe6076ef13ebbe9"}, {"arrows": "to", "from": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "bibo:cites", "title": "bibo:cites", "to": "http://example.org/ab546043d5994f31cf7aa4298cc6855bacd69eb6"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b5", "label": "rdf:type", "title": "rdf:type", "to": "http://semanticscience.org/resource/SIO_000414"}, {"arrows": "to", "from": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "bibo:cites", "title": "bibo:cites", "to": "http://example.org/c08618c338099849d573577846f6e7bea13d994f"}, {"arrows": "to", "from": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "bibo:cites", "title": "bibo:cites", "to": "http://example.org/ece08f8a60cca138c21585a513ee2fd89d5464a5"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b3", "label": "qb:concept", "title": "qb:concept", "to": "http://purl.bioontology.org/ontology/MESH/Q000208"}, {"arrows": "to", "from": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "bibo:cites", "title": "bibo:cites", "to": "http://example.org/5a2ad714a996fa2de16acd0da9273a1aa593c9a0"}, {"arrows": "to", "from": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "bibo:cites", "title": "bibo:cites", "to": "http://example.org/e76ad7b7f579b9b79121c2e735ea2645727a4c67"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b2", "label": "has relation", "title": "has relation", "to": "https://w3id.org/linkflows/superpattern/latest/affects"}, {"arrows": "to", "from": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "dcterms:identifier", "title": "dcterms:identifier", "to": "55755a5afa58bd73883942d822bd7829e554c840"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b8", "label": "rdf:type", "title": "rdf:type", "to": "http://semanticscience.org/resource/SIO_000414"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b4", "label": "rdf:type", "title": "rdf:type", "to": "http://purl.org/linked-data/cube#MeasureProperty"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b6", "label": "rdf:type", "title": "rdf:type", "to": "http://semanticscience.org/resource/SIO_001050"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b3", "label": "qb:concept", "title": "qb:concept", "to": "http://purl.bioontology.org/ontology/MESH/D005006"}, {"arrows": "to", "from": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "bibo:cites", "title": "bibo:cites", "to": "http://example.org/ec55b1f9714014a48c04658595a117b66e0a7a12"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b7", "label": "time:hasBeginning", "title": "time:hasBeginning", "to": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b9"}, {"arrows": "to", "from": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "bibo:cites", "title": "bibo:cites", "to": "http://example.org/2732fdcd3de5e72437cecdd9d02cc54dda23f8af"}, {"arrows": "to", "from": "http://purl.bioontology.org/ontology/MESH/D005006", "label": "rdf:type", "title": "rdf:type", "to": "http://www.w3.org/2004/02/skos/core#Concept"}, {"arrows": "to", "from": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "bibo:cites", "title": "bibo:cites", "to": "http://example.org/5497bca50f5ade72b3e4fa8ea1614839d51bd6b6"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b8", "label": "gn:locatedIn", "title": "gn:locatedIn", "to": "http://sws.geonames.org/6252001/"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b1", "label": "has attribute", "title": "has attribute", "to": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b2"}, {"arrows": "to", "from": "http://semanticscience.org/resource/SIO_001014", "label": "rdf:type", "title": "rdf:type", "to": "http://www.w3.org/2004/02/skos/core#Concept"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b2", "label": "has context", "title": "has context", "to": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b5"}, {"arrows": "to", "from": "http://purl.bioontology.org/ontology/MESH/Q000208", "label": "rdf:type", "title": "rdf:type", "to": "http://www.w3.org/2004/02/skos/core#Concept"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b4", "label": "qb:concept", "title": "qb:concept", "to": "http://purl.bioontology.org/ontology/MESH/D000086382"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b9", "label": "rdf:type", "title": "rdf:type", "to": "http://www.w3.org/2006/time#Instant"}, {"arrows": "to", "from": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "bibo:cites", "title": "bibo:cites", "to": "http://example.org/68adb0eff6bf167837eb6f156fb1ccf17027437e"}, {"arrows": "to", "from": "http://purl.bioontology.org/ontology/MESH/D000086382", "label": "rdf:type", "title": "rdf:type", "to": "http://www.w3.org/2004/02/skos/core#Concept"}, {"arrows": "to", "from": "http://sws.geonames.org/6252001/", "label": "ns7:long", "title": "ns7:long", "to": "-100.0"}, {"arrows": "to", "from": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "bibo:cites", "title": "bibo:cites", "to": "http://example.org/02d2cff978a4d862f7ecbcb19a335651ec4e428a"}, {"arrows": "to", "from": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "bibo:cites", "title": "bibo:cites", "to": "http://example.org/dd01298e3fb3c2429b989cfec73f928dc6b532a4"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b4", "label": "qb:concept", "title": "qb:concept", "to": "http://purl.obolibrary.org/obo/STATO_0000414"}, {"arrows": "to", "from": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "ns6:doi", "title": "ns6:doi", "to": "https://doi.org/10.1001/jamanetworkopen.2020.34578"}, {"arrows": "to", "from": "http://sws.geonames.org/6252001/", "label": "ns7:lat", "title": "ns7:lat", "to": "40.0"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b2", "label": "has object", "title": "has object", "to": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b4"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b6", "label": "time:hasTime", "title": "time:hasTime", "to": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b7"}, {"arrows": "to", "from": "http://sws.geonames.org/6252001/", "label": "ns7:lat", "title": "ns7:lat", "to": "39.78667"}, {"arrows": "to", "from": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "dcterms:created", "title": "dcterms:created", "to": "2021-01-01"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b9", "label": "time:inXSDDate", "title": "time:inXSDDate", "to": "2020-01-01"}, {"arrows": "to", "from": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "has attribute", "title": "has attribute", "to": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b1"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b10", "label": "time:inXSDDate", "title": "time:inXSDDate", "to": "2020-07-19"}, {"arrows": "to", "from": "http://sws.geonames.org/6252001/", "label": "name", "title": "name", "to": "United States"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b6", "label": "sem:hasPlace", "title": "sem:hasPlace", "to": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b8"}, {"arrows": "to", "from": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "bibo:cites", "title": "bibo:cites", "to": "http://example.org/47c7ea73de704b7da061a136d73d8dfaf4e88e47"}, {"arrows": "to", "from": "http://sws.geonames.org/6252001/", "label": "rdf:type", "title": "rdf:type", "to": "http://www.geonames.org/ontology#Feature"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b3", "label": "qb:concept", "title": "qb:concept", "to": "http://semanticscience.org/resource/SIO_001014"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b2", "label": "has subject", "title": "has subject", "to": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b3"}, {"arrows": "to", "from": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "dcterms:title", "title": "dcterms:title", "to": "Association of Social and Economic Inequality With Coronavirus Disease 2019 Incidence and Mortality Across US Counties"}, {"arrows": "to", "from": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "bibo:cites", "title": "bibo:cites", "to": "http://example.org/0aa3abd8365d38cb89b295d0fcdc9d158dbf128a"}, {"arrows": "to", "from": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "bibo:cites", "title": "bibo:cites", "to": "http://example.org/aa22b13462435be88e8b4179414c665a1a339e08"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b10", "label": "rdf:type", "title": "rdf:type", "to": "http://www.w3.org/2006/time#Instant"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b7", "label": "time:hasEnd", "title": "time:hasEnd", "to": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b10"}, {"arrows": "to", "from": "http://sws.geonames.org/6252001/", "label": "ns7:long", "title": "ns7:long", "to": "-83.17222"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b5", "label": "rdf:type", "title": "rdf:type", "to": "http://semanticscience.org/resource/SIO_001062"}, {"arrows": "to", "from": "http://example.org/55755a5afa58bd73883942d822bd7829e554c840", "label": "bibo:cites", "title": "bibo:cites", "to": "http://example.org/350ef4353902017b7f03fb75db75e640c1c08ab1"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b1", "label": "rdf:type", "title": "rdf:type", "to": "http://semanticscience.org/resource/SIO_000976"}, {"arrows": "to", "from": "http://purl.obolibrary.org/obo/STATO_0000414", "label": "rdf:type", "title": "rdf:type", "to": "http://www.w3.org/2004/02/skos/core#Concept"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b3", "label": "qb:concept", "title": "qb:concept", "to": "http://purl.bioontology.org/ontology/MESH/D007182"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b7", "label": "rdf:type", "title": "rdf:type", "to": "http://www.w3.org/2006/time#TemporalEntity"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b2", "label": "has qualifier", "title": "has qualifier", "to": "https://w3id.org/mira/strongMediumPositive"}, {"arrows": "to", "from": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b5", "label": "is represented by", "title": "is represented by", "to": "https://rdflib.github.io/.well-known/genid/rdflib/n4e6cf680a8f04bf1981c9f774040ebe0b6"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": true,
+        "filter": [
+            "physics"
+        ]
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -100,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+                  // if this network requires displaying the configure window,
+                  // put it in its div
+                  options.configure["container"] = document.getElementById("config");
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
