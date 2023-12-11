@@ -13,11 +13,16 @@ This github presents the MIRA-KG, a knowledge graph designed to capture hypothes
 
 ## Overview
 
-In the research workflow of a social historian or social demographer, research questions commonly include (i) descriptive questions, (ii) comparative questions, and (iii) explanatory questions. Here, each question is answered based on the output from a previous question or dataset, see the image below. The MIRA ontology describes this process: it links datasets of observations to research questions, to accommodate the research workflow of a social demographer/social historian towards more reusable, reproducible research. An example workflow, and how such a workflow can be made more FAIR, is shown below. 
+In the research workflow of a social historian or social demographer, research questions commonly include (i) descriptive questions, (ii) comparative questions, and (iii) explanatory questions. Here, each question is answered based on the output from a previous question or dataset, see the image below. An example workflow, and how such a workflow can be made more FAIR, is shown below. 
 
 ![Example annotation](figures/FAIRifying-SD.png)
 
-The [ontology](https://w3id.org/mira/ontology/) is populated by structured research questions on health inequality, extracted from abstracts of research papers, and is published on [Zenodo](https://doi.org/10.5281/zenodo.10286846), and queriable via a [SPARQL endpoint](
+In social demography, work has been done formally describing observational data, such as census data hosted as linked data at the International Institute of
+Social History (IISH). To the best of our knowledge, no studies formalise knowledge such as hypotheses and findings on social demography, whereas these are important in each of the
+steps of the scientific workflow of a social historian (see declarative/procedural knowledge in the figure above). The research process, hypotheses and findings are mostly written up in scientific documents
+in natural language, which can be ambiguous and imprecise. Such fields can thus benefit from adopting the FAIR data principles, to reduce unclarity and ambiguity in the research workflow of a social demographer. 
+
+The [MIRA ontology](https://w3id.org/mira/ontology/) describes this process: it links datasets of observations to research questions, to accommodate the research workflow of a social demographer/social historian towards more reusable, reproducible research. We also populate the ontology with structured research questions on health inequality, extracted from abstracts of research papers, and is published on [Zenodo](https://doi.org/10.5281/zenodo.10286846), and queriable via a [SPARQL endpoint](
 https://api.druid.datalegend.net/datasets/lisestork/MIRA-KG/services/MIRA-KG/sparql).
 
 This [github](https://github.com/muhai-project/mira/) contains the ontology, example annotations, scripts to produce structured annotations automatically from paper abstracts (explanatory questions and metadata of evidence used to answer the RQs), and SHACL shapes for the validation of generated annotations.
