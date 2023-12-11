@@ -1,12 +1,12 @@
-@prefix : <https://w3id.org/muhai-project/mira/> .
+@prefix : <https://w3id.org/mira/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/muhai-project/mira/> .
+@base <https://w3id.org/mira/> .
 
-<https://w3id.org/muhai-project/mira/> rdf:type owl:Ontology ;
+<https://w3id.org/mira/> rdf:type owl:Ontology ;
                                         owl:imports <http://semanticscience.org/ontology/sio.owl> ;
                                         <http://purl.org/dc/terms/contributor> <https://orcid.org/0000-0003-0956-9466> ;
                                         <http://purl.org/dc/terms/creator> <http://orcid.org/0000-0002-2146-4803> ,
@@ -131,14 +131,6 @@ xsd:positiveInteger rdf:type rdfs:Datatype .
              rdfs:range :Mediator ;
              rdfs:label "has mediator" .
 
-
-###  https://w3id.org/muhai-project/mira/hasModerator
-:hasModerator rdf:type owl:ObjectProperty ;
-              rdfs:domain :Explanation ;
-              rdfs:range :Moderator ;
-              rdfs:label "has moderator" .
-
-
 ###  https://w3id.org/muhai-project/mira/hasObject
 :hasObject rdf:type owl:ObjectProperty ;
            rdfs:domain :Comparison ,
@@ -150,12 +142,12 @@ xsd:positiveInteger rdf:type rdfs:Datatype .
            rdfs:label "has object" .
 
 
-###  https://w3id.org/muhai-project/mira/hasQualifier
-:hasQualifier rdf:type owl:ObjectProperty ;
+###  https://w3id.org/muhai-project/mira/hasEffectSize
+:hasEffectSize rdf:type owl:ObjectProperty ;
               rdfs:domain :Comparison ,
                           :Explanation ;
-              rdfs:range :Qualifier ;
-              rdfs:label "has qualifier" .
+              rdfs:range :EffectSize ;
+              rdfs:label "has effect size" .
 
 
 ###  https://w3id.org/muhai-project/mira/hasRelation
@@ -293,8 +285,8 @@ xsd:positiveInteger rdf:type rdfs:Datatype .
 
 
 ###  https://w3id.org/muhai-project/mira/Qualifier
-:Qualifier rdf:type owl:Class ;
-           rdfs:label "qualifier" .
+:EffectSize rdf:type owl:Class ;
+           rdfs:label "effect size" .
 
 
 ###  https://w3id.org/muhai-project/mira/RelationalProperty
