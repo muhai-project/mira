@@ -13,7 +13,7 @@ This github presents the MIRA-KG, a knowledge graph designed to capture hypothes
 
 ## Overview
 
-Research questions for social history research, such as from social demography, commonly include (i) descriptive questions, (ii) comparative questions, and (iii) explanatory questions. Here, each question is based on the output from the previous one. Preferably, these questions are all derived from one another, and from the dataset. See the image below. The MIRA ontology thus links datasets to research questions to accommodate the research workflow of a social demographer/social historian towards more reusable, reproducible research. An example workflow is shown below. 
+In the research workflow of a social historian or social demographer, research questions commonly include (i) descriptive questions, (ii) comparative questions, and (iii) explanatory questions. Here, each question is answered based on the output from a previous question or dataset, see the image below. The MIRA ontology describes this process: it links datasets of observations to research questions, to accommodate the research workflow of a social demographer/social historian towards more reusable, reproducible research. An example workflow, and how such a workflow can be made more FAIR, is shown below. 
 
 ![Example annotation](figures/FAIRifying-SD.png)
 
