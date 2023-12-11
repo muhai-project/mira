@@ -14,9 +14,9 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix qb: <http://purl.org/linked-data/cube#>.
 
-@prefix mira: <https://w3id.org/muhai-project/mira/> .
+@prefix mira: <https://w3id.org/mira/> .
 
-<https://w3id.org/muhai-project/mira/> a owl:Ontology ;
+<https://w3id.org/mira/> a owl:Ontology ;
     rdfs:label "mechanisms of inequality research and analysis (MIRA) ontology ";
     owl:imports <http://semanticscience.org/ontology/sio.owl> ;
     dcterms:creator <http://orcid.org/0000-0002-2146-4803>, <https://orcid.org/0000-0002-9771-8822>, <https://orcid.org/0000-0001-7116-9338>, <https://orcid.org/0000-0002-9771-8822>;
@@ -132,10 +132,10 @@ mira:hasObject a owl:ObjectProperty ;
         rdfs:domain mira:Comparison, mira:Explanation;
         rdfs:range mira:Object, sio:SIO_000015, qb:MeasureProperty, mira:Explanation . #values from InformationContentEntity, or qb:ComponentProperty
 
-mira:hasQualifier a owl:ObjectProperty ;
-        rdfs:label "has qualifier";
+mira:hasEffectSize a owl:ObjectProperty ;
+        rdfs:label "has effect size";
         rdfs:domain mira:Comparison, mira:Explanation;
-        rdfs:range mira:Qualifier .
+        rdfs:range mira:EffectSize .
 
 mira:hasContext a owl:ObjectProperty ;
         rdfs:label "has context";
@@ -185,11 +185,6 @@ mira:hasMediator a owl:ObjectProperty ;
         rdfs:label "has mediator";
         rdfs:domain mira:Explanation ;
         rdfs:range mira:Mediator .
-
-mira:hasModerator a owl:ObjectProperty ;
-        rdfs:label "has moderator";
-        rdfs:domain mira:Explanation ;
-        rdfs:range mira:Moderator .
 
 #################################################################
 #    Datatype properties
