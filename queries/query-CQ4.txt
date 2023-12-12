@@ -1,21 +1,19 @@
-#CQ4 https://youneedawiki.com/app/page/16bVDFTQ03PMqpwtyRyMBwbkvIlq8bvCtBWPk_rwTfqw
+#CQ4 which moderators or mediators are described for the relationship between two variables?
+# https://youneedawiki.com/app/page/16bVDFTQ03PMqpwtyRyMBwbkvIlq8bvCtBWPk_rwTfqw
 
-PREFIX mira: <https://w3id.org/mira/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX qb: <http://purl.org/linked-data/cube#>
+prefix mira: <https://w3id.org/mira/>
+prefix qb: <http://purl.org/linked-data/cube#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+prefix sio: <http://semanticscience.org/resource/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-select distinct ?ind_lab ?ind_var ?qual 
-                    ?med_var ?med_lab where { 
-?exp mira:hasSubject/qb:concept/rdfs:label ?ind_lab; 
-     #what is the subject of the explanation
-     mira:hasSubject/qb:concept ?ind_var; 
-     #the object is COVID-19 mortality
-     mira:hasObject/qb:concept mesh:D000086382, 
-                                stato:STATO_0000414;
-     #what is the effectSize of the association
-     mira:hasEffectSize ?effectSize . 
-     #which variables mediate the association
-OPTIONAL{?exp mira:hasMediator ?med_var; 
-           mira:hasMediator/rdfs:label ?med_lab .}
-}
+SELECT distinct ?title ?sub ?obj ?med ?mod where {
+    ?paper dcterms:title ?title .
+    ?paper sio:SIO_000008/sio:SIO_000008 ?exp .
+    ?exp mira:hasSubject/qb:concept/rdfs:label ?sub .
+    ?exp mira:hasObject/qb:concept/rdfs:label ?obj .
+    OPTIONAL {?exp mira:hasMediator/qb:concept/rdfs:label ?med .}
+    OPTIONAL {?int mira:hasObject ?exp.
+              ?int mira:hasSubject/qb:concept/rdfs:label ?mod}
+ }
+
