@@ -1,4 +1,8 @@
-PREFIX ...
+PREFIX mira: <https://w3id.org/mira/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+
 select distinct ?ind_lab ?ind_var ?qual 
                     ?med_var ?med_lab where { 
 ?exp mira:hasSubject/qb:concept/rdfs:label ?ind_lab; 
