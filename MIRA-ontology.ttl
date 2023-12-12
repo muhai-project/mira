@@ -14,7 +14,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix qb: <http://purl.org/linked-data/cube#>.
 
-@prefix mira: <https://w3id.org/mira/> .
+@prefix mira: <https://w3id.org/mira/ontology/> .
 
 <https://w3id.org/mira/> a owl:Ontology ;
     rdfs:label "mechanisms of inequality research and analysis (MIRA) ontology ";
