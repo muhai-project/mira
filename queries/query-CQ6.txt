@@ -1,0 +1,17 @@
+#CQ6: which claims could I derive from a dataset which has certain dimension and measure properties?
+#https://youneedawiki.com/app/page/16bVDFTQ03PMqpwtyRyMBwbkvIlq8bvCtBWPk_rwTfqw?p=1QKAOVV0TXfF4vYQ7b5dkHkXQjBqnh75W
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix mira: <https://w3id.org/mira/ontology/> 
+prefix qb: <http://purl.org/linked-data/cube#>
+PREFIX sio: <http://semanticscience.org/resource/>
+select distinct * where { 
+    ?dataset a qb:DataSet . 
+    ?dataset qb:structure/qb:component/qb:dimension ?dimension . 
+    ?dataset qb:structure/qb:component/qb:measure ?measure . 
+    ?paper sio:SIO_000008/sio:SIO_000008 ?exp .
+    ?exp mira:hasSubject ?dimension .
+    ?exp mira:hasObject ?measure .
+    ?dimension rdfs:label ?dimensionLabel .
+    ?measure rdfs:label ?measureLabel .
+}  
