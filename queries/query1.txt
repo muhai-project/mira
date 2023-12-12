@@ -1,4 +1,15 @@
-PREFIX ... 
+PREFIX sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>
+PREFIX mira: <https://w3id.org/mira/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX gn: <http://www.geonames.org/ontology#>
+PREFIX stato: <http://purl.obolibrary.org/obo/> 
+PREFIX mesh: <http://purl.bioontology.org/ontology/MESH/>
+PREFIX wgs84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+
 select ?inf_cont_ent1 ?inf_cont_ent2 ?ice1_type ?ice2_type 
         ?subject ?begin ?end ?name ?lat ?long where { 
     ?comp a mira:Comparison . 
@@ -6,7 +17,7 @@ select ?inf_cont_ent1 ?inf_cont_ent2 ?ice1_type ?ice2_type
         mira:hasObject ?inf_cont_ent2 ; #descriptive statistic
         mira:hasRelation ?relation ; #relation between the two descriptive statistics
         mira:hasContext ?sample ;  #dataset used to calculate the statistics
-        SIO:SIO_000205 ?exp .
+        sio:SIO_000205 ?exp .
     ?exp mira:hasSubject/qb:concept/rdfs:label ?subject ; #what is the subject of the claim
          #the object of the claim is COVID-19 and Mortality
          mira:hasObject/qb:concept mesh:D000086382, stato:STATO_0000414 .
