@@ -1,5 +1,5 @@
 #CQ5: what is the evidence for the effect of a specific mediator variable?
-# https://youneedawiki.com/app/page/16bVDFTQ03PMqpwtyRyMBwbkvIlq8bvCtBWPk_rwTfqw
+# https://youneedawiki.com/app/page/16bVDFTQ03PMqpwtyRyMBwbkvIlq8bvCtBWPk_rwTfqw?p=1QKAOVV0TXfF4vYQ7b5dkHkXQjBqnh75W
 
 PREFIX mira: <https://w3id.org/mira/ontology/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
