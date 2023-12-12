@@ -1,5 +1,5 @@
 #CQ4 which moderators or mediators are described for the relationship between two variables?
-# https://youneedawiki.com/app/page/16bVDFTQ03PMqpwtyRyMBwbkvIlq8bvCtBWPk_rwTfqw
+# https://youneedawiki.com/app/page/16bVDFTQ03PMqpwtyRyMBwbkvIlq8bvCtBWPk_rwTfqw?p=1QKAOVV0TXfF4vYQ7b5dkHkXQjBqnh75W
 
 prefix mira: <https://w3id.org/mira/ontology/>
 prefix qb: <http://purl.org/linked-data/cube#>
