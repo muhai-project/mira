@@ -1,0 +1,28 @@
+# CQ2 which samples have been chosen to represent a certain population (e.g., population in shock, either by recession, pandemic, … )
+# https://youneedawiki.com/app/page/16bVDFTQ03PMqpwtyRyMBwbkvIlq8bvCtBWPk_rwTfqw
+
+PREFIX mira: <https://w3id.org/mira/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX prism: <http://prismstandard.org/namespaces/1.2/basic/>
+PREFIX sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX gn: <http://www.geonames.org/ontology#>
+
+SELECT ?doi ?sub ?obj ?name ?begin ?end WHERE {
+    ?exp ?rel ?subobj . 
+    ?subobj qb:concept <http://purl.bioontology.org/ontology/MESH/D004785> . 
+    ?paper prism:doi ?doi .
+    ?paper sio:SIO_000008/sio:SIO_000008 ?exp .
+    ?exp mira:hasSubject/rdfs:label ?sub . 
+    ?exp mira:hasObject/rdfs:label ?obj .
+    ?exp mira:hasContext ?con .
+    ?con sio:SIO_000205 ?sample .
+    ?sample sem:hasPlace ?region .
+    ?sample time:hasTime/time:hasBeginning/time:inXSDDate ?begin ;
+                            time:hasTime/time:hasEnd/time:inXSDDate ?end .
+    ?region gn:locatedIn ?geonamesId .
+    ?geonamesId gn:name ?name .  
+}
