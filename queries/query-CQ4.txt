@@ -1,7 +1,7 @@
 #CQ4 which moderators or mediators are described for the relationship between two variables?
 # https://youneedawiki.com/app/page/16bVDFTQ03PMqpwtyRyMBwbkvIlq8bvCtBWPk_rwTfqw
 
-prefix mira: <https://w3id.org/mira/>
+prefix mira: <https://w3id.org/mira/ontology/>
 prefix qb: <http://purl.org/linked-data/cube#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 prefix sio: <http://semanticscience.org/resource/>
