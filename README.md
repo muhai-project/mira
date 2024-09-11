@@ -13,15 +13,6 @@ Social Demography, Knowledge Graph, Scientific Hypotheses, Information Extractio
 ## Description 
 This github presents the MIRA-KG, a knowledge graph designed to capture hypotheses and findings in social demography research. The resource aids researchers in understanding the trends and patterns revealed in social demography, and use them to discover biases, discover knowledge, and derive novel questions.
 
-## Table of Contents
-- [Overview](#overview)
-- [Getting Started](#getting-started)
-- [Prerequisites](#prerequisites)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
-
 ## Overview 
 
 In the research workflow of a social historian or social demographer, research questions commonly include (i) descriptive questions, (ii) comparative questions, and (iii) explanatory questions. Here, each question is answered based on the output from a previous question or dataset, see the image below. An example workflow, and how such a workflow can be made more FAIR, is shown below. 
