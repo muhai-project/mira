@@ -26,7 +26,6 @@ This github presents the MIRA-KG, a knowledge graph designed to capture hypothes
 
 In the research workflow of a social historian or social demographer, research questions commonly include (i) descriptive questions, (ii) comparative questions, and (iii) explanatory questions. Here, each question is answered based on the output from a previous question or dataset, see the image below. An example workflow, and how such a workflow can be made more FAIR, is shown below. 
 
-## Images 
 ![Example annotation](figures/FAIRifying-SD.png)
 
 In social demography, work has been done formally describing observational data, such as census data hosted as linked data at the International Institute of
