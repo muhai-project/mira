@@ -1,5 +1,16 @@
-# MIRA - A Knowledge Graph for Social Demography Hypotheses and Findings.
+## Name 
+MIRA 
 
+## Full title 
+MIRA - A Knowledge Graph for Social Demography Hypotheses and Findings.
+
+## Application domain
+Semantic web, Graphs, Natural Language Processing 
+
+## Keywords 
+Social Demography, Knowledge Graph, Scientific Hypotheses, Information Extraction 
+
+## Description 
 This github presents the MIRA-KG, a knowledge graph designed to capture hypotheses and findings in social demography research. The resource aids researchers in understanding the trends and patterns revealed in social demography, and use them to discover biases, discover knowledge, and derive novel questions.
 
 ## Table of Contents
@@ -11,10 +22,11 @@ This github presents the MIRA-KG, a knowledge graph designed to capture hypothes
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
 
-## Overview
+## Overview 
 
 In the research workflow of a social historian or social demographer, research questions commonly include (i) descriptive questions, (ii) comparative questions, and (iii) explanatory questions. Here, each question is answered based on the output from a previous question or dataset, see the image below. An example workflow, and how such a workflow can be made more FAIR, is shown below. 
 
+## Images 
 ![Example annotation](figures/FAIRifying-SD.png)
 
 In social demography, work has been done formally describing observational data, such as census data hosted as linked data at the International Institute of
@@ -27,7 +39,7 @@ https://api.druid.datalegend.net/datasets/lisestork/MIRA-KG/services/MIRA-KG/spa
 
 This [github](https://github.com/muhai-project/mira/) contains the ontology, example annotations, scripts to produce structured annotations automatically from paper abstracts (explanatory questions and metadata of evidence used to answer the RQs), and SHACL shapes for the validation of generated annotations.
 
-### Prerequisites
+### Requirements
 
 1. clone the project
 ```
@@ -39,7 +51,7 @@ git clone https://github.com/muhai-project/mira.git
 pip install -r requirements.txt
 ```
 
-### Usage
+### Usage examples:
 
 The semantify.py script turns research paper abstracts of papers on social demography into RDF according to the MIRA ontology. It does so by: (i) prompting a Large Language Model to annotate paper abstracts, (ii) mapping concepts to terms from NCBO BioPortal ontologies and Geonames. An example annotation is shown in the figure below:
 
@@ -71,12 +83,53 @@ You can use the validate.py script to validate the set against a set of SHACL sh
 ```
 python validate.py --batch_file ../data/test_output.ttl --shacl_file ../validation/shacl-shapes.ttl --validation_output validation_results.ttl --view 1
 ```
+
+## Ontologies 
+[ontology/ontology.ttl](https://github.com/muhai-project/mira/blob/main/ontology/ontology.ttl)
+
+## Programming languages
+Python 
+
 ## License
 
 This project is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
 
-## Acknowledgments
+## Citation
+
+@InProceedings{10.1007/978-3-031-60635-9_12,
+author="Stork, Lise and Zijdeman, Richard L. and Tiddi, Ilaria and ten Teije, Annette",
+editor="Mero{\~{n}}o Pe{\~{n}}uela, Albert and Dimou, Anastasia and Troncy, Rapha{\"e}l and Hartig, Olaf and Acosta, Maribel and Alam, Mehwish and Paulheim, Heiko and Lisena, Pasquale",
+title="Enabling Social Demography Research Using Semantic Technologies",
+booktitle="The Semantic Web",
+year="2024",
+publisher="Springer Nature Switzerland",
+address="Cham",
+pages="199--216",
+isbn="978-3-031-60635-9"
+}
+
+## DOI 
+10.1007/978-3-031-60635-9_12
+
+## Contact 
+Lise Stork, l.stork@uva.nl
+
+## Contributors
+Lise Stork, Richard Zijdeman, Ilaria Tiddi, Annette ten Teije
+
+## Owner 
+muhai-project
+
+## Owner type
+Organization  
+
+## Repository status 
+Active 
+
+## Acknowledgment
 This work was funded by the European MUHAI project (Horizon 2020 research and innovation program) under grant agreement
 number 951846. We thank Tobias Kuhn and Inès Blin for the insightful discussions that contributed to this work.
 
+
 ---
+
