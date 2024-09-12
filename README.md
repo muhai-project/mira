@@ -81,8 +81,7 @@ python validate.py --batch_file ../data/test_output.ttl --shacl_file ../validati
 Python 
 
 ## License
-
-This project is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
+Apache license 2.0 
 
 ## Citation
 
